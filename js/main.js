@@ -8,26 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  setTimeout(() => {
-    initSandAnimation('heroSandCanvas', 'heroNamesSand', {
-      mode: 'hero',
-      startText: 'Divyesh & Binal',
-      hiddenText: '',
-      fontFamily: '"Great Vibes", cursive',
-      fontWeight: '400',
-      fontSizeWidthRatio: 0.19,
-      fontSizeHeightRatio: 0.82,
-      fontSizeMax: 88,
-      textYRatio: 0.52,
-      cellSize: 2,
-      grainColorBright: 'rgba(212, 175, 55, 0.92)',
-      reformDurationSeconds: 2
-    });
-  }, 900);
+  initHeroSandText();
 });
+
+async function initHeroSandText() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const isMobile = window.innerWidth <= 520;
+
+  try {
+    if (document.fonts) {
+      await document.fonts.ready;
+      await document.fonts.load('400 48px "Great Vibes"');
+      await document.fonts.load('400 72px "Great Vibes"');
+    }
+  } catch (e) { /* font load optional */ }
+
+  await new Promise((resolve) => {
+    const ready = () => requestAnimationFrame(() => requestAnimationFrame(resolve));
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready, { once: true });
+  });
+
+  await new Promise((resolve) => setTimeout(resolve, isMobile ? 400 : 200));
+
+  initSandAnimation('heroSandCanvas', 'heroNamesSand', {
+    mode: 'hero',
+    startText: 'Divyesh & Binal',
+    hiddenText: '',
+    fontFamily: '"Great Vibes", cursive',
+    fontWeight: '400',
+    fontSizeWidthRatio: isMobile ? 0.24 : 0.19,
+    fontSizeHeightRatio: isMobile ? 0.9 : 0.82,
+    fontSizeMax: isMobile ? 52 : 88,
+    textYRatio: 0.52,
+    cellSize: isMobile ? 3 : 2,
+    grainColorBright: 'rgba(212, 175, 55, 0.92)',
+    reformDurationSeconds: isMobile ? 1.7 : 2
+  });
+}
 
 const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');

@@ -44,9 +44,13 @@ window.initSandAnimation = function (canvasId, containerId, userOptions = {}) {
   let fixedCodepen, codepenCells = [], looseCells = [];
   let falling = [], pile, reforming = [];
   let hiddenAlpha = 0;
-  let phase = isHero ? 'heroRain' : 'codepen';
+  let phase = isHero ? 'idle' : 'codepen';
   let phaseTime = 0;
   let lastTime = performance.now();
+  let resizeAttempts = 0;
+  let heroAssemblyLocked = false;
+  let heroBuildInProgress = false;
+  let buildGeneration = 0;
 
   function index(col, row) { return row * cols + col; }
   function colFromIndex(i) { return i % cols; }
@@ -64,17 +68,46 @@ window.initSandAnimation = function (canvasId, containerId, userOptions = {}) {
     }
   }
 
-  function resize() {
-    const rect = container.getBoundingClientRect();
-    w = rect.width;
-    h = rect.height;
-    if (w < 1 || h < 1) return;
-
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
+  function updateCanvasDimensions() {
+    canvas.width = Math.max(1, Math.floor(w * dpr));
+    canvas.height = Math.max(1, Math.floor(h * dpr));
     canvas.style.width = w + 'px';
     canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  async function loadMaskFont(fontSize) {
+    if (!document.fonts || !document.fonts.load) return;
+    const spec = `${settings.fontWeight} ${fontSize}px ${settings.fontFamily}`;
+    try {
+      await document.fonts.ready;
+      await document.fonts.load(spec);
+      if (!document.fonts.check(spec)) {
+        await new Promise((r) => setTimeout(r, 120));
+        await document.fonts.load(spec);
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  function resize() {
+    const rect = container.getBoundingClientRect();
+    w = Math.floor(rect.width);
+    h = Math.floor(rect.height);
+
+    if (w < 1 || h < 1) {
+      if (resizeAttempts < 50) {
+        resizeAttempts++;
+        requestAnimationFrame(resize);
+      }
+      return;
+    }
+    resizeAttempts = 0;
+
+    if (isHero && (heroAssemblyLocked || heroBuildInProgress)) return;
+
+    if (isHero) heroBuildInProgress = true;
+
+    updateCanvasDimensions();
 
     cols = Math.ceil(w / settings.cellSize);
     rows = Math.ceil(h / settings.cellSize);
@@ -85,37 +118,25 @@ window.initSandAnimation = function (canvasId, containerId, userOptions = {}) {
     falling = [];
     reforming = [];
     hiddenAlpha = 0;
-    phase = isHero ? 'heroRain' : 'codepen';
+    phase = isHero ? 'idle' : 'codepen';
     phaseTime = 0;
-    buildTextMask();
+
+    const gen = ++buildGeneration;
+    buildTextMask(gen);
   }
 
-  function buildTextMask() {
-    const maskCanvas = document.createElement('canvas');
-    const maskCtx = maskCanvas.getContext('2d');
-    maskCanvas.width = w;
-    maskCanvas.height = h;
-
-    const fontSize = Math.min(
-      w * settings.fontSizeWidthRatio,
-      h * settings.fontSizeHeightRatio,
-      settings.fontSizeMax
-    );
-
-    maskCtx.clearRect(0, 0, w, h);
-    maskCtx.fillStyle = '#fff';
-    maskCtx.textAlign = 'center';
-    maskCtx.textBaseline = 'middle';
-    maskCtx.font = `${settings.fontWeight} ${fontSize}px ${settings.fontFamily}`;
-    maskCtx.fillText(settings.startText, w / 2, h * settings.textYRatio);
-
-    const image = maskCtx.getImageData(0, 0, w, h).data;
+  function sampleMaskCells(image) {
+    codepenCells = [];
+    looseCells = [];
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
         const x = Math.floor(col * settings.cellSize + settings.cellSize / 2);
         const y = Math.floor(row * settings.cellSize + settings.cellSize / 2);
-        if (image[(y * w + x) * 4 + 3] > 35) {
+        if (x < 0 || y < 0 || x >= w || y >= h) continue;
+
+        const alpha = image[(y * w + x) * 4 + 3];
+        if (alpha > 35) {
           const i = index(col, row);
           codepenCells.push(i);
           if (!isHero) {
@@ -125,11 +146,60 @@ window.initSandAnimation = function (canvasId, containerId, userOptions = {}) {
         }
       }
     }
+  }
+
+  function renderMaskToCells(fontSize) {
+    const maskCanvas = document.createElement('canvas');
+    const maskCtx = maskCanvas.getContext('2d');
+    maskCanvas.width = w;
+    maskCanvas.height = h;
+
+    maskCtx.clearRect(0, 0, w, h);
+    maskCtx.fillStyle = '#fff';
+    maskCtx.textAlign = 'center';
+    maskCtx.textBaseline = 'middle';
+    maskCtx.font = `${settings.fontWeight} ${fontSize}px ${settings.fontFamily}`;
+    maskCtx.fillText(settings.startText, w / 2, h * settings.textYRatio);
+
+    return maskCtx.getImageData(0, 0, w, h).data;
+  }
+
+  async function buildTextMask(gen) {
+    const fontSize = Math.max(
+      12,
+      Math.min(
+        w * settings.fontSizeWidthRatio,
+        h * settings.fontSizeHeightRatio,
+        settings.fontSizeMax
+      )
+    );
+
+    await loadMaskFont(fontSize);
+    if (gen !== buildGeneration) return;
+
+    sampleMaskCells(renderMaskToCells(fontSize));
+
+    if (isHero && codepenCells.length === 0) {
+      await new Promise((r) => setTimeout(r, 200));
+      if (gen !== buildGeneration) return;
+      await loadMaskFont(fontSize);
+      sampleMaskCells(renderMaskToCells(fontSize));
+    }
+
+    if (gen !== buildGeneration) return;
 
     if (!isHero) {
       shuffle(looseCells);
     } else if (codepenCells.length > 0) {
       startHeroAssemble();
+      heroAssemblyLocked = true;
+      heroBuildInProgress = false;
+    } else {
+      heroBuildInProgress = false;
+      if (resizeAttempts < 50) {
+        resizeAttempts++;
+        requestAnimationFrame(resize);
+      }
     }
   }
 
@@ -467,8 +537,19 @@ window.initSandAnimation = function (canvasId, containerId, userOptions = {}) {
     requestAnimationFrame(tick);
   }
 
-  const resizeObserver = new ResizeObserver(() => resize());
+  const resizeObserver = new ResizeObserver(() => {
+    if (!isHero || !heroAssemblyLocked) resize();
+  });
   resizeObserver.observe(container);
   resize();
   requestAnimationFrame(tick);
+
+  window.addEventListener('pageshow', (event) => {
+    if (!isHero || !event.persisted) return;
+    codepenCells.forEach((cell) => { fixedCodepen[cell] = 1; });
+    reforming = [];
+    falling = [];
+    phase = 'heroHold';
+    heroAssemblyLocked = true;
+  });
 };
