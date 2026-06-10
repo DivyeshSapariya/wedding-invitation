@@ -81,14 +81,11 @@ window.initSmoothScroll = function () {
 window.initHeroEntrance = function () {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const portrait = document.querySelector('.hero__portrait');
-  const names = document.querySelector('.hero__names');
 
   if (prefersReducedMotion) {
     portrait?.classList.add('hero__portrait--visible');
-    names?.classList.add('hero__names--visible');
     return;
   }
 
   setTimeout(() => portrait?.classList.add('hero__portrait--visible'), 150);
-  setTimeout(() => names?.classList.add('hero__names--visible'), 750);
 };

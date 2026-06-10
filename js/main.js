@@ -3,10 +3,30 @@ const WEDDING_DATE = new Date('2027-02-11T16:00:00');
 document.addEventListener('DOMContentLoaded', () => {
   initMandalaCloud('mandala-cloud-container');
   initMandalaSvg('mandala-svg');
-  initSandAnimation('sandCanvas', 'countdownSand');
+  initSandAnimation('sandCanvas', 'countdownSand', { mode: 'cycle' });
   initHeroEntrance();
   initScrollReveal();
   initSmoothScroll();
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  setTimeout(() => {
+    initSandAnimation('heroSandCanvas', 'heroNamesSand', {
+      mode: 'hero',
+      startText: 'Divyesh & Binal',
+      hiddenText: '',
+      fontFamily: '"Great Vibes", cursive',
+      fontWeight: '400',
+      fontSizeWidthRatio: 0.19,
+      fontSizeHeightRatio: 0.82,
+      fontSizeMax: 88,
+      textYRatio: 0.52,
+      cellSize: 2,
+      grainColorBright: 'rgba(212, 175, 55, 0.92)',
+      reformDurationSeconds: 2
+    });
+  }, 900);
 });
 
 const nav = document.getElementById('nav');
