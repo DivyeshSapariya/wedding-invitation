@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroEntrance();
   initScrollReveal();
   initSmoothScroll();
+  initHandTouchSection();
 
   initHeroSandText();
 });

@@ -64,6 +64,71 @@
     </div>
   </section>
 
+  <!-- Hand Touch — Wedding Date Reveal -->
+  <section class="hand-touch" id="hand-touch" aria-label="Wedding date reveal">
+    <div class="hand-touch__wrapper" id="handTouchWrapper">
+      <div class="hand-touch__sticky" id="handTouchSticky">
+
+        <div class="hand-touch__stars" id="handTouchStars" aria-hidden="true"></div>
+        <div class="hand-touch__progress" id="handTouchProgress" aria-hidden="true"></div>
+        <div class="hand-touch__floor-glow" aria-hidden="true"></div>
+        <div class="hand-touch__floor-line" aria-hidden="true"></div>
+        <div class="hand-touch__floor-circle" aria-hidden="true"></div>
+
+        <div class="hand-touch__top-label" id="handTouchTopLabel">
+          <p class="hand-touch__top-text">Scroll as two hearts draw near</p>
+        </div>
+
+        <div class="hand-touch__date" id="handTouchDate">
+          <p class="hand-touch__date-main">11 February 2027</p>
+          <div class="hand-touch__date-divider">
+            <span></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L6 21l2.3-7-6-4.6h7.6z"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="hand-touch__meet-point" id="handTouchMeetPoint" aria-hidden="true">
+          <div class="hand-touch__spark-ring" id="handTouchSparkRing"></div>
+          <div class="hand-touch__spark-ring hand-touch__spark-ring--alt" id="handTouchSparkRing2"></div>
+          <div class="hand-touch__heart-burst" id="handTouchHeartBurst"></div>
+          <div class="hand-touch__spark-stream" id="handTouchSparkStream"></div>
+        </div>
+        <div class="hand-touch__hand-emitter" id="handTouchGroomFx" aria-hidden="true"></div>
+        <div class="hand-touch__hand-emitter" id="handTouchBrideFx" aria-hidden="true"></div>
+        <div class="hand-touch__petals" id="handTouchPetals" aria-hidden="true"></div>
+
+        <div class="hand-touch__characters">
+          <p class="hand-touch__side-name hand-touch__side-name--left" id="handTouchGroomName">Divyesh</p>
+
+          <div class="hand-touch__character hand-touch__character--groom" id="handTouchGroom">
+            <div class="hand-touch__figure">
+              <img class="hand-touch__char-img" id="handTouchGroomImg"
+                   src="images/groom-reaching.png" alt="Divyesh" />
+              <div class="hand-touch__char-shadow" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="hand-touch__character hand-touch__character--bride" id="handTouchBride">
+            <div class="hand-touch__figure">
+              <img class="hand-touch__char-img" id="handTouchBrideImg"
+                   src="images/bride-reaching.png" alt="Binal" />
+              <div class="hand-touch__char-shadow" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <p class="hand-touch__side-name hand-touch__side-name--right" id="handTouchBrideName">Binal</p>
+        </div>
+
+        <div class="hand-touch__scroll-cue" id="handTouchScrollCue">
+          <p>Scroll down</p>
+          <div class="hand-touch__scroll-arrow" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Countdown with Sand Animation -->
   <section class="countdown" id="countdown">
     <div class="countdown__sand" id="countdownSand">
@@ -228,6 +293,7 @@
   <script src="js/mandala-svg.js"></script>
   <script src="js/sand.js"></script>
   <script src="js/scroll-reveal.js"></script>
+  <script src="js/hand-touch.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
