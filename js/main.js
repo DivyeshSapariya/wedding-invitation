@@ -53,10 +53,6 @@ const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
 navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
@@ -93,7 +89,7 @@ document.querySelectorAll('.timeline__item').forEach(item => {
 
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + 120;
+  const scrollY = window.scrollY + (nav?.offsetHeight || 0) + 16;
   sections.forEach(section => {
     const top = section.offsetTop;
     const height = section.offsetHeight;

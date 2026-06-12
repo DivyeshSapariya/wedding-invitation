@@ -9,6 +9,7 @@ function initHandTouchSection() {
   const brideImg = document.getElementById('handTouchBrideImg');
   const groomName = document.getElementById('handTouchGroomName');
   const brideName = document.getElementById('handTouchBrideName');
+  const centerName = document.getElementById('handTouchCenterName');
   const dateReveal = document.getElementById('handTouchDate');
   const scrollCue = document.getElementById('handTouchScrollCue');
   const topLabel = document.getElementById('handTouchTopLabel');
@@ -51,10 +52,13 @@ function initHandTouchSection() {
     heartBurst.appendChild(burst);
   }
 
+  const mobileLayout = window.innerWidth < 600;
+
   function createHandEmitter(container, direction) {
     const icons = ['✦', '♥', '★', '✧', '✿', '❋', '✨', '♡'];
     const dirX = direction === 'right' ? 1 : -1;
-    for (let i = 0; i < 14; i++) {
+    const count = mobileLayout ? 7 : 14;
+    for (let i = 0; i < count; i++) {
       const particle = document.createElement('span');
       particle.className = 'hand-touch__emit-particle';
       particle.textContent = icons[i % icons.length];
@@ -82,22 +86,95 @@ function initHandTouchSection() {
     sparkStream.appendChild(dot);
   }
 
-  const petals = ['🌸', '🌺', '🏵️', '✿', '🌼'];
-  for (let i = 0; i < 12; i++) {
-    const petal = document.createElement('div');
-    petal.className = 'hand-touch__fpetal';
-    petal.textContent = petals[i % petals.length];
-    petal.style.cssText = `left:${10 + Math.random() * 80}%;bottom:${80 + Math.random() * 100}px;
-      --fd:${3 + Math.random() * 4}s;--fdl:${Math.random() * 3}s;
-      --fx:${(Math.random() - 0.5) * 120}px;--fr:${Math.random() * 360}deg`;
-    floatPetals.appendChild(petal);
+  if (!mobileLayout) {
+    const petals = ['🌸', '🌺', '🏵️', '✿', '🌼'];
+    for (let i = 0; i < 12; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'hand-touch__fpetal';
+      petal.textContent = petals[i % petals.length];
+      petal.style.cssText = `left:${10 + Math.random() * 80}%;bottom:${80 + Math.random() * 100}px;
+        --fd:${3 + Math.random() * 4}s;--fdl:${Math.random() * 3}s;
+        --fx:${(Math.random() - 0.5) * 120}px;--fr:${Math.random() * 360}deg`;
+      floatPetals.appendChild(petal);
+    }
   }
 
   const hpEls = heartBurst.querySelectorAll('.hand-touch__hp');
   const fpetalEls = floatPetals.querySelectorAll('.hand-touch__fpetal');
 
-  let startX = window.innerWidth < 600 ? 140 : 280;
+  let startX = 280;
+  let groomEndX = 0;
+  let brideEndX = 0;
   let touchTriggered = false;
+  const isMobile = () => window.innerWidth < 600;
+
+  function measureHandGap() {
+    const groomRect = groomImg.getBoundingClientRect();
+    const brideRect = brideImg.getBoundingClientRect();
+    const groomHand = groomRect.right - groomRect.width * 0.04;
+    const brideHand = brideRect.left + brideRect.width * 0.04;
+    return brideHand - groomHand;
+  }
+
+  function measureTouchOffsets() {
+    const prevGroom = groom.style.transform;
+    const prevBride = bride.style.transform;
+    const prevGroomImg = groomImg.style.transform;
+    const prevBrideImg = brideImg.style.transform;
+
+    groom.style.transform = 'translateX(0px)';
+    bride.style.transform = 'translateX(0px)';
+    groomImg.style.transform = 'scale(1)';
+    brideImg.style.transform = 'scale(1)';
+    void groom.offsetWidth;
+
+    const gap = measureHandGap();
+    const touchOverlap = isMobile() ? 14 : 8;
+    const closeBy = Math.max(0, (gap + touchOverlap) / 2);
+
+    groom.style.transform = prevGroom;
+    bride.style.transform = prevBride;
+    groomImg.style.transform = prevGroomImg;
+    brideImg.style.transform = prevBrideImg;
+
+    return { groomEndX: -closeBy, brideEndX: -closeBy };
+  }
+
+  function calcLayout() {
+    const vw = window.innerWidth;
+    const touch = measureTouchOffsets();
+    groomEndX = touch.groomEndX;
+    brideEndX = touch.brideEndX;
+
+    if (vw >= 600) {
+      startX = 280;
+      return;
+    }
+
+    const overlap = 12;
+    const groomW = groomImg.offsetWidth;
+    const brideW = brideImg.offsetWidth;
+
+    if (!groomW || !brideW) {
+      startX = Math.min(64, Math.max(36, vw * 0.14));
+      return;
+    }
+
+    const pairW = groomW + brideW - overlap;
+    const room = Math.floor((vw - pairW) / 2 - 4);
+    startX = Math.min(72, Math.max(36, room));
+  }
+
+  function syncStageHeight() {
+    const h = window.innerHeight;
+    document.documentElement.style.setProperty('--ht-stage-h', `${h}px`);
+    wrapper.style.height = `${Math.round(h * 3.8)}px`;
+  }
+
+  function refreshStartX() {
+    syncStageHeight();
+    calcLayout();
+  }
 
   function lerp(a, b, t) {
     return a + (b - a) * t;
@@ -176,27 +253,38 @@ function initHandTouchSection() {
 
   function onScroll() {
     const rect = wrapper.getBoundingClientRect();
-    const total = wrapper.offsetHeight - window.innerHeight;
+    const stageHeight = window.innerHeight;
+    const total = wrapper.offsetHeight - stageHeight;
     const scrolled = -rect.top;
     const progress = Math.max(0, Math.min(1, scrolled / total));
 
     progressBar.style.width = `${progress * 100}%`;
-    topLabel.classList.toggle('show', progress > 0.04);
-    scrollCue.classList.toggle('hidden', progress > 0.04);
 
-    const walkP = Math.max(0, Math.min(1, (progress - 0.05) / 0.72));
+    const isPinned = rect.top <= 0 && rect.bottom >= stageHeight;
+    const showInstruction = isPinned && progress < 0.68;
+    wrapper.classList.toggle('is-pinned', isPinned);
+    topLabel.classList.toggle('show', showInstruction);
+    scrollCue.classList.toggle('hidden', !showInstruction || progress > 0.14);
+
+    const walkStart = isMobile() ? 0.1 : 0.05;
+    const walkSpan = isMobile() ? 0.78 : 0.72;
+    const walkP = Math.max(0, Math.min(1, (progress - walkStart) / walkSpan));
     const eased = easeInOut(walkP);
-    const curX = lerp(startX, 0, eased);
+    const curGroomX = lerp(startX, groomEndX, eased);
+    const curBrideX = lerp(startX, brideEndX, eased);
 
-    groom.style.transform = `translateX(-${curX}px)`;
-    bride.style.transform = `translateX(${curX}px)`;
+    groom.style.transform = `translateX(-${curGroomX}px)`;
+    bride.style.transform = `translateX(${curBrideX}px)`;
 
-    const scale = lerp(0.88, 1, eased);
+    const scaleMin = isMobile() ? 0.94 : 0.88;
+    const scale = lerp(scaleMin, 1, eased);
     groomImg.style.transform = `scale(${scale})`;
     brideImg.style.transform = `scale(${scale})`;
 
-    groomName.classList.toggle('show', progress > 0.22);
-    brideName.classList.toggle('show', progress > 0.22);
+    const namesVisible = progress > 0.22;
+    groomName.classList.toggle('show', namesVisible);
+    brideName.classList.toggle('show', namesVisible);
+    if (centerName) centerName.classList.toggle('show', namesVisible);
 
     const glowing = progress > 0.70;
     groomImg.classList.toggle('glow', glowing);
@@ -204,7 +292,9 @@ function initHandTouchSection() {
 
     updateHandEffects(progress);
 
-    if (progress < 0.70 && touchTriggered) {
+    const touchResetAt = isMobile() ? 0.62 : 0.70;
+
+    if (progress < touchResetAt && touchTriggered) {
       touchTriggered = false;
       dateReveal.classList.remove('show');
       hpEls.forEach((el) => el.classList.remove('burst'));
@@ -213,7 +303,9 @@ function initHandTouchSection() {
       fpetalEls.forEach((p) => p.classList.remove('active'));
     }
 
-    if (progress >= 0.82 && !touchTriggered) {
+    const handsAligned = measureHandGap() <= (isMobile() ? 22 : 16);
+
+    if (walkP >= 0.97 && handsAligned && !touchTriggered) {
       touchTriggered = true;
       triggerTouch();
     }
@@ -222,17 +314,19 @@ function initHandTouchSection() {
   }
 
   function onResize() {
-    startX = window.innerWidth < 600 ? 140 : 280;
+    refreshStartX();
     onScroll();
   }
 
   if (reducedMotion) {
-    groom.style.transform = 'translateX(0)';
-    bride.style.transform = 'translateX(0)';
+    calcLayout();
+    groom.style.transform = `translateX(${-groomEndX}px)`;
+    bride.style.transform = `translateX(${brideEndX}px)`;
     groomImg.style.transform = 'scale(1)';
     brideImg.style.transform = 'scale(1)';
     groomName.classList.add('show');
     brideName.classList.add('show');
+    if (centerName) centerName.classList.add('show');
     topLabel.classList.add('show');
     scrollCue.classList.add('hidden');
     dateReveal.classList.add('show');
@@ -241,7 +335,13 @@ function initHandTouchSection() {
     return;
   }
 
+  [groomImg, brideImg].forEach((img) => {
+    if (img.complete) refreshStartX();
+    else img.addEventListener('load', () => { refreshStartX(); onScroll(); }, { once: true });
+  });
+
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onResize, { passive: true });
+  refreshStartX();
   onScroll();
 }
