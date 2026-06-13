@@ -620,7 +620,8 @@ ul { list-style: none; }
 
 .hand-touch__top-label {
   position: absolute;
-  top: max(0.85rem, calc(env(safe-area-inset-top, 0px) + 0.5rem));
+  /* top: max(0.85rem, calc(env(safe-area-inset-top, 0px) + 0.5rem)); */
+  top: max(4.85rem, calc(env(safe-area-inset-top, 0px) + 0.5rem));
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -766,7 +767,8 @@ ul { list-style: none; }
 
 .hand-touch__date {
   position: absolute;
-  top: 18%;
+  /* top: 18%; */
+  top: 8%;
   left: 50%;
   transform: translate(-50%, 0) scale(0.5);
   text-align: center;
@@ -984,7 +986,8 @@ ul { list-style: none; }
 
 .hand-touch__scroll-cue {
   position: absolute;
-  top: max(3.35rem, calc(env(safe-area-inset-top, 0px) + 2.5rem));
+  /* top: max(3.35rem, calc(env(safe-area-inset-top, 0px) + 2.5rem)); */
+  top: max(9.35rem, calc(env(safe-area-inset-top, 0px) + 2.5rem));
   bottom: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -1131,6 +1134,9 @@ ul { list-style: none; }
   .hand-touch__center-name.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+    bottom: unset;
+    top: 38%;
+    font-size: 42px;
   }
 
   .hand-touch__date {
@@ -1143,6 +1149,7 @@ ul { list-style: none; }
 
   .hand-touch__date.show {
     transform: translate(-50%, 0) scale(1);
+    top: 20%;
   }
 
   .hand-touch__date-main {
