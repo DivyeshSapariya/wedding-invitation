@@ -1588,7 +1588,7 @@ ul { list-style: none; }
 
   .nav__links.open { right: 0; }
 
-  .hero__lotus--tl { width: 80px; top: 3%; left: 3%; }
+  .hero__lotus--tl { width: 80px; top: max(7rem, 13%); left: 3%; }
   .hero__lotus--tr { width: 75px; top: 5%; right: 3%; }
   .hero__lotus--bl { width: 78px; bottom: 7%; left: 3%; }
   .hero__lotus--br { width: 80px; bottom: 4%; right: 3%; }
