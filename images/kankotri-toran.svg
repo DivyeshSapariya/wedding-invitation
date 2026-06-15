@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 56" fill="none" preserveAspectRatio="none">
+  <!-- traditional toran / garland band -->
+  <path d="M0 28 Q60 8 120 28 Q180 48 240 28 Q300 8 360 28 Q420 48 480 28" stroke="#8f6a1c" stroke-width="1" opacity="0.45" fill="none"/>
+  <!-- mango leaves -->
+  <g opacity="0.55">
+    <path d="M40 26 Q48 14 56 26 Q48 34 40 26Z" fill="#2f6b3c"/>
+    <path d="M80 30 Q88 18 96 30 Q88 38 80 30Z" fill="#2f6b3c"/>
+    <path d="M120 26 Q128 14 136 26 Q128 34 120 26Z" fill="#2f6b3c"/>
+    <path d="M160 30 Q168 18 176 30 Q168 38 160 30Z" fill="#2f6b3c"/>
+    <path d="M200 26 Q208 14 216 26 Q208 34 200 26Z" fill="#2f6b3c"/>
+    <path d="M240 30 Q248 18 256 30 Q248 38 240 30Z" fill="#2f6b3c"/>
+    <path d="M280 26 Q288 14 296 26 Q288 34 280 26Z" fill="#2f6b3c"/>
+    <path d="M320 30 Q328 18 336 30 Q328 38 320 30Z" fill="#2f6b3c"/>
+    <path d="M360 26 Q368 14 376 26 Q368 34 360 26Z" fill="#2f6b3c"/>
+    <path d="M400 30 Q408 18 416 30 Q408 38 400 30Z" fill="#2f6b3c"/>
+    <path d="M440 26 Q448 14 456 26 Q448 34 440 26Z" fill="#2f6b3c"/>
+  </g>
+  <!-- marigold flowers -->
+  <g opacity="0.65">
+    <circle cx="60" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="60" cy="28" r="2" fill="#f5d78e"/>
+    <circle cx="140" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="140" cy="28" r="2" fill="#f5d78e"/>
+    <circle cx="220" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="220" cy="28" r="2" fill="#f5d78e"/>
+    <circle cx="300" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="300" cy="28" r="2" fill="#f5d78e"/>
+    <circle cx="380" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="380" cy="28" r="2" fill="#f5d78e"/>
+    <circle cx="460" cy="28" r="5" fill="#d9772b"/>
+    <circle cx="460" cy="28" r="2" fill="#f5d78e"/>
+  </g>
+  <!-- hanging bells / ghungroo dots -->
+  <g fill="#c79a3b" opacity="0.5">
+    <circle cx="100" cy="38" r="2"/><circle cx="180" cy="38" r="2"/>
+    <circle cx="260" cy="38" r="2"/><circle cx="340" cy="38" r="2"/>
+    <circle cx="420" cy="38" r="2"/>
+  </g>
+</svg>

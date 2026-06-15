@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 72" fill="none" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8962a"/>
+      <stop offset="50%" stop-color="#f5b84a"/>
+      <stop offset="100%" stop-color="#e8962a"/>
+    </linearGradient>
+  </defs>
+  <!-- hanging strings -->
+  <path d="M0 4 H480" stroke="#c79a3b" stroke-width="0.8" opacity="0.45"/>
+  <!-- marigold clusters -->
+  <g opacity="0.85">
+    <circle cx="48" cy="22" r="9" fill="url(#mg)"/>
+    <circle cx="40" cy="28" r="7" fill="#f0a030"/>
+    <circle cx="56" cy="28" r="7" fill="#f0a030"/>
+    <circle cx="48" cy="32" r="6" fill="#e88820"/>
+    <circle cx="144" cy="20" r="8" fill="url(#mg)"/>
+    <circle cx="136" cy="26" r="6" fill="#f0a030"/>
+    <circle cx="152" cy="26" r="6" fill="#f0a030"/>
+    <circle cx="240" cy="18" r="10" fill="url(#mg)"/>
+    <circle cx="230" cy="26" r="7" fill="#f0a030"/>
+    <circle cx="250" cy="26" r="7" fill="#f0a030"/>
+    <circle cx="240" cy="30" r="6" fill="#e88820"/>
+    <circle cx="336" cy="20" r="8" fill="url(#mg)"/>
+    <circle cx="328" cy="26" r="6" fill="#f0a030"/>
+    <circle cx="432" cy="22" r="9" fill="url(#mg)"/>
+    <circle cx="424" cy="28" r="7" fill="#f0a030"/>
+    <circle cx="440" cy="28" r="7" fill="#f0a030"/>
+  </g>
+  <!-- leaves -->
+  <g fill="#3d7a45" opacity="0.55">
+    <path d="M24 14 Q30 8 36 14 Q30 20 24 14Z"/>
+    <path d="M120 12 Q126 6 132 12 Q126 18 120 12Z"/>
+    <path d="M216 10 Q222 4 228 10 Q222 16 216 10Z"/>
+    <path d="M312 12 Q318 6 324 12 Q318 18 312 12Z"/>
+    <path d="M408 14 Q414 8 420 14 Q414 20 408 14Z"/>
+  </g>
+  <!-- tassel beads -->
+  <g fill="#c79a3b" opacity="0.5">
+    <circle cx="96" cy="38" r="2"/><circle cx="96" cy="46" r="1.5"/>
+    <circle cx="192" cy="36" r="2"/><circle cx="192" cy="44" r="1.5"/>
+    <circle cx="288" cy="38" r="2"/><circle cx="288" cy="46" r="1.5"/>
+    <circle cx="384" cy="36" r="2"/><circle cx="384" cy="44" r="1.5"/>
+  </g>
+  <!-- bottom vine -->
+  <path d="M0 58 Q120 48 240 58 Q360 68 480 58" stroke="#8f6a1c" stroke-width="0.7" opacity="0.35" fill="none"/>
+</svg>

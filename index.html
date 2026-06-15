@@ -7,18 +7,22 @@
   <title>Divyesh & Binal — Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Rasa:wght@400;500;600;700&family=Mukta+Vaani:wght@400;500;600;700&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/kankotri-book.css" />
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo">D & B</a>
+      <a href="#hero" class="nav__logo">
+        <img src="images/logos/3.png" alt="Divyesh & Binal" class="nav__logo-img" width="190" height="70" decoding="async" />
+      </a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="navLinks">
+        <li><a href="#kankotri">Kankotri</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#details">Details</a></li>
         <li><a href="#schedule">Schedule</a></li>
@@ -133,9 +137,6 @@
 
   <!-- Countdown with Sand Animation -->
   <section class="countdown" id="countdown">
-    <div class="countdown__sand" id="countdownSand">
-      <canvas id="sandCanvas"></canvas>
-    </div>
     <div class="countdown__content container">
       <p class="section-label reveal">Counting Down</p>
       <h2 class="section-title reveal" data-delay="120">To Our Big Day</h2>
@@ -155,6 +156,73 @@
         <div class="countdown__item reveal reveal--scale">
           <span class="countdown__num" id="seconds">00</span>
           <span class="countdown__label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kankotri Book -->
+  <section class="kankotri" id="kankotri" aria-label="Traditional kankotri invitation">
+    <div class="kankotri__ambient" aria-hidden="true">
+      <div class="kankotri__gradient"></div>
+      <div class="kankotri__pattern"></div>
+      <div class="kankotri__ornament kankotri__ornament--tl"></div>
+      <div class="kankotri__ornament kankotri__ornament--tr"></div>
+      <div class="kankotri__ornament kankotri__ornament--bl"></div>
+      <div class="kankotri__ornament kankotri__ornament--br"></div>
+      <div class="kankotri__glow"></div>
+      <div class="kankotri__vignette"></div>
+    </div>
+
+    <div class="container kankotri__header">
+      <p class="section-label reveal">લગ્ન કંકોત્રી</p>
+      <h2 class="section-title reveal" data-delay="120">Our Kankotri</h2>
+      <p class="kankotri__subtitle reveal" data-delay="180">ખોલવા કાર્ડ પર ટેપ કરો અથવા તીર (‹ ›) દબાવો</p>
+    </div>
+
+    <div class="kankotri__book-shell">
+      <div class="kankotri__book-host" id="kankotriBookHost">
+        <div class="deskwrap">
+        <div class="bar"><span class="count" id="kkCount">પાનું ૧</span></div>
+        <div class="stage" id="kkStage">
+          <div class="scaler" id="kkScaler"><div class="book" id="kkBook"></div></div>
+          <div class="edge left">
+            <button type="button" class="edge-arrow" id="kkPrev" aria-label="પાછલું પાનું">‹</button>
+            <span class="edge-cap">પાછળ</span>
+          </div>
+          <div class="edge right">
+            <button type="button" class="edge-arrow pulse" id="kkNext" aria-label="આગળનું પાનું">›</button>
+            <span class="edge-cap">આગળ</span>
+          </div>
+        </div>
+        <div class="dots" id="kkDots">
+          <button type="button" class="dot on" data-go="0" aria-label="પાનું ૧"></button>
+          <button type="button" class="dot" data-go="1" aria-label="પાનું ૨–૩"></button>
+          <button type="button" class="dot" data-go="2" aria-label="પાનું ૪"></button>
+        </div>
+        <p class="hint" id="kkHint">ખોલવા જમણી બાજુનું તીર (›) દબાવો — અથવા કાર્ડ પર ટેપ કરો</p>
+      </div>
+
+      <div class="mwrap">
+        <div class="mtop" id="kkMCount">પાનું ૧ / ૪</div>
+        <div class="mstage">
+          <div class="mbook" id="kkMBook"></div>
+          <div class="edge left">
+            <button type="button" class="edge-arrow" id="kkMPrev" aria-label="પાછલું પાનું">‹</button>
+            <span class="edge-cap">પાછળ</span>
+          </div>
+          <div class="edge right">
+            <button type="button" class="edge-arrow pulse" id="kkMNext" aria-label="આગળનું પાનું">›</button>
+            <span class="edge-cap">આગળ</span>
+          </div>
+        </div>
+        <p class="mhelp">પાનું ફેરવવા બાજુના તીર (‹ ›) દબાવો, કે સ્વાઇપ કરો</p>
+        <div class="mdots" id="kkMDots">
+          <button type="button" class="mdot on" data-go="0" aria-label="Page 1"></button>
+          <button type="button" class="mdot" data-go="1" aria-label="Page 2"></button>
+          <button type="button" class="mdot" data-go="2" aria-label="Page 3"></button>
+          <button type="button" class="mdot" data-go="3" aria-label="Page 4"></button>
+        </div>
         </div>
       </div>
     </div>
@@ -296,6 +364,7 @@
   <script src="js/sand.js"></script>
   <script src="js/scroll-reveal.js"></script>
   <script src="js/hand-touch.js"></script>
+  <script src="js/kankotri-book.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

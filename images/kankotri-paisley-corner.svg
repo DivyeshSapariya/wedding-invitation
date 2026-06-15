@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- corner paisley flourish -->
+  <path d="M8 8 C8 48 28 68 68 68 C48 68 28 48 8 8Z" stroke="#8f6a1c" stroke-width="1.2" opacity="0.55" fill="none"/>
+  <path d="M14 14 C14 42 30 58 58 58 C42 58 26 42 14 14Z" fill="#c79a3b" opacity="0.12"/>
+  <path d="M20 20 C20 38 32 50 50 50 C38 50 26 38 20 20Z" stroke="#5e0f17" stroke-width="0.8" opacity="0.35" fill="none"/>
+  <!-- mango leaf -->
+  <path d="M4 28 Q18 8 36 4 Q22 18 4 28Z" fill="#2f6b3c" opacity="0.18"/>
+  <path d="M4 28 Q10 20 18 16" stroke="#2f6b3c" stroke-width="0.6" opacity="0.3"/>
+  <!-- marigold dot cluster -->
+  <circle cx="22" cy="22" r="3" fill="#d9772b" opacity="0.35"/>
+  <circle cx="30" cy="16" r="2" fill="#c79a3b" opacity="0.4"/>
+  <circle cx="16" cy="30" r="2" fill="#c79a3b" opacity="0.4"/>
+  <!-- border lines -->
+  <path d="M4 4 H52" stroke="#c79a3b" stroke-width="1" opacity="0.5"/>
+  <path d="M4 4 V52" stroke="#c79a3b" stroke-width="1" opacity="0.5"/>
+</svg>

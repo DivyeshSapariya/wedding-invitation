@@ -3,11 +3,11 @@ const WEDDING_DATE = new Date('2027-02-11T16:00:00');
 document.addEventListener('DOMContentLoaded', () => {
   initMandalaCloud('mandala-cloud-container');
   initMandalaSvg('mandala-svg');
-  initSandAnimation('sandCanvas', 'countdownSand', { mode: 'cycle' });
   initHeroEntrance();
   initScrollReveal();
   initSmoothScroll();
   initHandTouchSection();
+  initKankotriBook();
 
   initHeroSandText();
 });

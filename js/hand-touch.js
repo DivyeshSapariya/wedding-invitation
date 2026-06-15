@@ -106,7 +106,7 @@ function initHandTouchSection() {
   let groomEndX = 0;
   let brideEndX = 0;
   let touchTriggered = false;
-  const isMobile = () => window.innerWidth < 600;
+  const isMobile = () => window.matchMedia('(max-width: 600px)').matches;
 
   function measureHandGap() {
     const groomRect = groomImg.getBoundingClientRect();
