@@ -1,0 +1,70 @@
+/* ===== Smooth reveal after space intro ===== */
+body:not(.site-reveal) .nav,
+body:not(.site-reveal) #hero .hero__particles,
+body:not(.site-reveal) #hero .hero__vignette,
+body:not(.site-reveal) #hero .hero__lotus,
+body:not(.site-reveal) #hero .hero__layout {
+  opacity: 0;
+}
+
+body:not(.site-reveal) #hero .hero__layout {
+  transform: translateY(18px);
+}
+
+body.site-reveal .nav {
+  opacity: 1;
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+body.site-reveal #hero .hero__particles,
+body.site-reveal #hero .hero__vignette {
+  opacity: 1;
+  transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+}
+
+body.site-reveal #hero .hero__lotus {
+  opacity: 1;
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
+}
+
+body.site-reveal #hero .hero__layout {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.32s,
+    transform 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.32s;
+}
+
+body:not(.site-reveal) .hero__names {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+body.site-reveal .hero__names {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.62s,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.62s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.site-reveal) .nav,
+  body:not(.site-reveal) #hero .hero__particles,
+  body:not(.site-reveal) #hero .hero__vignette,
+  body:not(.site-reveal) #hero .hero__lotus,
+  body:not(.site-reveal) #hero .hero__layout,
+  body:not(.site-reveal) .hero__names {
+    opacity: 1;
+    transform: none;
+  }
+
+  body.site-reveal .nav,
+  body.site-reveal #hero .hero__particles,
+  body.site-reveal #hero .hero__vignette,
+  body.site-reveal #hero .hero__lotus,
+  body.site-reveal #hero .hero__layout,
+  body.site-reveal .hero__names {
+    transition: none;
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 400" preserveAspectRatio="none">
+  <g opacity="0.92">
+    <circle cx="36" cy="35" r="11" fill="#e8962a"/><circle cx="32" cy="32" r="6" fill="#f5c040"/>
+    <circle cx="36" cy="78" r="9" fill="#f0a830"/><circle cx="40" cy="76" r="5" fill="#e88820"/>
+    <circle cx="36" cy="121" r="10" fill="#e8962a"/><circle cx="31" cy="119" r="5" fill="#f5c040"/>
+    <circle cx="36" cy="164" r="9" fill="#f0a830"/>
+    <circle cx="36" cy="207" r="11" fill="#e8962a"/><circle cx="40" cy="205" r="6" fill="#f5c040"/>
+    <circle cx="36" cy="250" r="9" fill="#f0a830"/>
+    <circle cx="36" cy="293" r="10" fill="#e8962a"/><circle cx="32" cy="291" r="5" fill="#e88820"/>
+    <circle cx="36" cy="336" r="9" fill="#f0a830"/>
+    <circle cx="36" cy="379" r="11" fill="#e8962a"/><circle cx="41" cy="377" r="6" fill="#f5c040"/>
+  </g>
+  <path d="M36 12 Q44 22 36 32 Q28 22 36 12Z" fill="#3d7a45" opacity="0.65"/>
+  <path d="M36 100 Q44 110 36 120 Q28 110 36 100Z" fill="#3d7a45" opacity="0.55"/>
+  <path d="M36 188 Q44 198 36 208 Q28 198 36 188Z" fill="#3d7a45" opacity="0.6"/>
+  <path d="M36 276 Q44 286 36 296 Q28 286 36 276Z" fill="#3d7a45" opacity="0.55"/>
+  <path d="M36 364 Q44 374 36 384 Q28 374 36 364Z" fill="#3d7a45" opacity="0.6"/>
+</svg>
