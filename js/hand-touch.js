@@ -13,7 +13,6 @@ function initHandTouchSection() {
   const dateReveal = document.getElementById('handTouchDate');
   const scrollCue = document.getElementById('handTouchScrollCue');
   const topLabel = document.getElementById('handTouchTopLabel');
-  const progressBar = document.getElementById('handTouchProgress');
   const meetPoint = document.getElementById('handTouchMeetPoint');
   const sparkRing = document.getElementById('handTouchSparkRing');
   const sparkRing2 = document.getElementById('handTouchSparkRing2');
@@ -251,14 +250,15 @@ function initHandTouchSection() {
     setTimeout(() => fpetalEls.forEach((p) => p.classList.add('active')), 500);
   }
 
-  function onScroll() {
+  let scrollTicking = false;
+
+  function onScrollFrame() {
+    scrollTicking = false;
     const rect = wrapper.getBoundingClientRect();
     const stageHeight = window.innerHeight;
     const total = wrapper.offsetHeight - stageHeight;
     const scrolled = -rect.top;
     const progress = Math.max(0, Math.min(1, scrolled / total));
-
-    progressBar.style.width = `${progress * 100}%`;
 
     const isPinned = rect.top <= 0 && rect.bottom >= stageHeight;
     const showInstruction = isPinned && progress < 0.68;
@@ -313,6 +313,12 @@ function initHandTouchSection() {
     if (touchTriggered) dateReveal.classList.add('show');
   }
 
+  function onScroll() {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+  }
+
   function onResize() {
     refreshStartX();
     onScroll();
@@ -330,7 +336,6 @@ function initHandTouchSection() {
     topLabel.classList.add('show');
     scrollCue.classList.add('hidden');
     dateReveal.classList.add('show');
-    progressBar.style.width = '100%';
     updateHandEffects(1);
     return;
   }

@@ -6,69 +6,51 @@ function initSite() {
   initHeroEntrance();
   initScrollReveal();
   initSmoothScroll();
+  initNavScrollSpy();
   initHandTouchSection();
   initKankotriBook();
   initEventCards();
   initCountdown(WEDDING_DATE);
-  initHeroSandText();
+  initHeroSparklesText();
+  initHashScroll();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('intro-complete')) {
+    document.body.classList.add('site-reveal');
     initSite();
     return;
   }
 
+  window.addEventListener('intro:exiting', () => {
+    initSite();
+  }, { once: true });
+
   window.addEventListener('intro:complete', () => {
     document.body.classList.add('intro-complete');
-    initSite();
   }, { once: true });
 
   // Fallback if intro markup is missing
   setTimeout(() => {
     if (!document.body.classList.contains('intro-complete')) {
       document.getElementById('space-intro')?.remove();
+      document.documentElement.classList.remove('intro-active');
       document.body.classList.remove('intro-active');
+      document.body.classList.add('site-reveal');
       document.body.classList.add('intro-complete');
       initSite();
     }
   }, 8000);
 });
 
-async function initHeroSandText() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const isMobile = window.innerWidth <= 520;
-
-  try {
-    if (document.fonts) {
-      await document.fonts.ready;
-      await document.fonts.load('400 48px "Great Vibes"');
-      await document.fonts.load('400 72px "Great Vibes"');
-    }
-  } catch (e) { /* font load optional */ }
-
-  await new Promise((resolve) => {
-    const ready = () => requestAnimationFrame(() => requestAnimationFrame(resolve));
-    if (document.readyState === 'complete') ready();
-    else window.addEventListener('load', ready, { once: true });
-  });
-
-  await new Promise((resolve) => setTimeout(resolve, isMobile ? 400 : 200));
-
-  initSandAnimation('heroSandCanvas', 'heroNamesSand', {
-    mode: 'hero',
-    startText: 'Divyesh & Binal',
-    hiddenText: '',
-    fontFamily: '"Great Vibes", cursive',
-    fontWeight: '400',
-    fontSizeWidthRatio: isMobile ? 0.24 : 0.19,
-    fontSizeHeightRatio: isMobile ? 0.9 : 0.82,
-    fontSizeMax: isMobile ? 52 : 88,
-    textYRatio: 0.52,
-    cellSize: isMobile ? 3 : 2,
-    grainColorBright: 'rgba(212, 175, 55, 0.92)',
-    reformDurationSeconds: isMobile ? 1.7 : 2
+function initHeroSparklesText() {
+  initSparklesText('heroSparklesText', {
+    text: 'દિવ્યેશ અને બિનલ',
+    sparklesCount: window.innerWidth <= 520 ? 10 : 14,
+    colors: {
+      first: '#f0d78c',
+      second: '#ffb8c8',
+    },
   });
 }
 
@@ -76,22 +58,66 @@ const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+function setNavOpen(isOpen) {
+  if (!navLinks || !navToggle) return;
+  navLinks.classList.toggle('open', isOpen);
+  document.body.classList.toggle('nav-open', isOpen);
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  navToggle.setAttribute('aria-label', isOpen ? 'મેનૂ બંધ કરો' : 'મેનૂ ખોલો');
+}
 
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + (nav?.offsetHeight || 0) + 16;
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute('id');
-    if (scrollY >= top && scrollY < top + height) {
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-      });
-    }
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setNavOpen(!navLinks.classList.contains('open'));
   });
-});
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setNavOpen(false));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.classList.contains('open')) return;
+    if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
+    setNavOpen(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setNavOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) setNavOpen(false);
+  });
+}
+
+function initNavScrollSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const links = navLinks?.querySelectorAll('a[href^="#"]');
+  if (!sections.length || !links?.length) return;
+
+  const setActive = (hash) => {
+    links.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === hash);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (!visible.length) return;
+      const id = visible[0].target.getAttribute('id');
+      if (id) setActive(`#${id}`);
+    },
+    {
+      root: null,
+      threshold: [0.15, 0.35, 0.55],
+      rootMargin: '-20% 0px -55% 0px',
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}

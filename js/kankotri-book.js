@@ -78,7 +78,7 @@ window.initKankotriBook = function () {
 
   const THANKYOU = `
     <div class="ty-em">🙏</div>
-    <h1 class="thankyou">Thank You</h1>
+    <h1 class="thankyou">આભાર</h1>
     <p class="ty-sub">॥ આભાર ॥</p>
     <p class="ty-pad">પધારશો જી</p>`;
 

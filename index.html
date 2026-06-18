@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu" class="intro-active">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Divyesh & Binal — Wedding Invitation. Join us on 11 February 2027." />
-  <title>Divyesh & Binal — Wedding Invitation</title>
+  <meta name="description" content="દિવ્યેશ અને બિનલ — લગ્ન નિમંત્રણ. ૧૧ ફેબ્રુઆરી ૨૦૨૭ ના શુભ દિવસે અમારી સાથ જોડાઓ." />
+  <title>દિવ્યેશ અને બિનલ — લગ્ન નિમંત્રણ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Rasa:wght@400;500;600;700&family=Mukta+Vaani:wght@400;500;600;700&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="css/event-details.css" />
   <link rel="stylesheet" href="css/countdown.css" />
   <link rel="stylesheet" href="css/space-intro.css" />
+  <link rel="stylesheet" href="css/sparkles-text.css" />
+  <link rel="stylesheet" href="css/site-reveal.css" />
+  <link rel="stylesheet" href="css/site-audio.css" />
 </head>
 <body class="intro-active">
 
@@ -23,7 +26,7 @@
       <span class="space-intro__glow" aria-hidden="true"></span>
       <img
         src="images/logos/3.png"
-        alt="Divyesh & Binal"
+        alt="દિવ્યેશ અને બિનલ"
         class="space-intro__logo"
         width="340"
         height="125"
@@ -35,16 +38,16 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#hero" class="nav__logo">
-        <img src="images/logos/3.png" alt="Divyesh & Binal" class="nav__logo-img" width="190" height="70" decoding="async" />
+        <img src="images/logos/3.png" alt="દિવ્યેશ અને બિનલ" class="nav__logo-img" width="190" height="70" decoding="async" />
       </a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="મેનૂ ખોલો" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="navLinks">
-        <li><a href="#kankotri">Kankotri</a></li>
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#details">Details</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#kankotri">કંકોત્રી</a></li>
+        <li><a href="#story">અમારી કહાની</a></li>
+        <li><a href="#details">વિગતો</a></li>
+        <li><a href="#gallery">ગેલેરી</a></li>
       </ul>
     </div>
   </nav>
@@ -75,36 +78,39 @@
         </div>
         <div class="hero__photo-ring">
           <div class="hero__photo-glow"></div>
-          <img src="images/couple-lake-proposal.png" alt="Divyesh and Binal" class="hero__photo" />
+          <img src="images/couple-lake-proposal.png" alt="દિવ્યેશ અને બિનલ" class="hero__photo" />
         </div>
       </div>
 
-      <div class="hero__names" id="heroNamesSand" aria-label="Divyesh and Binal">
-        <canvas id="heroSandCanvas"></canvas>
-        <h1 class="hero__names-sr">Divyesh & Binal</h1>
+      <div class="hero__names" id="heroSparklesText" aria-label="દિવ્યેશ અને બિનલ">
+        <div class="sparkles-text">
+          <span class="sparkles-text__inner">
+            <span class="sparkles-text__sparkles" aria-hidden="true"></span>
+            <h1 class="sparkles-text__label">દિવ્યેશ અને બિનલ</h1>
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Hand Touch — Wedding Date Reveal -->
-  <section class="hand-touch" id="hand-touch" aria-label="Wedding date reveal">
+  <section class="hand-touch" id="hand-touch" aria-label="લગ્ન તારીખ પ્રદર્શન">
     <div class="hand-touch__wrapper" id="handTouchWrapper">
       <div class="hand-touch__sticky" id="handTouchSticky">
 
         <div class="hand-touch__stars" id="handTouchStars" aria-hidden="true"></div>
-        <div class="hand-touch__progress" id="handTouchProgress" aria-hidden="true"></div>
         <div class="hand-touch__floor-glow" aria-hidden="true"></div>
         <div class="hand-touch__floor-line" aria-hidden="true"></div>
         <!-- <div class="hand-touch__floor-circle" aria-hidden="true"></div> -->
 
         <div class="hand-touch__top-label" id="handTouchTopLabel">
-          <p class="hand-touch__top-text">Scroll Down Until the Date Is Revealed</p>
+          <p class="hand-touch__top-text">તારીખ દેખાય ત્યાં સુધી નીચે સ્ક્રોલ કરો</p>
         </div>
 
-        <p class="hand-touch__center-name" id="handTouchCenterName">Divyesh &amp; Binal</p>
+        <p class="hand-touch__center-name" id="handTouchCenterName">દિવ્યેશ અને બિનલ</p>
 
         <div class="hand-touch__date" id="handTouchDate">
-          <p class="hand-touch__date-main">11 February 2027</p>
+          <p class="hand-touch__date-main">૧૧ ફેબ્રુઆરી ૨૦૨૭</p>
           <div class="hand-touch__date-divider">
             <span></span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L6 21l2.3-7-6-4.6h7.6z"/></svg>
@@ -123,12 +129,12 @@
         <div class="hand-touch__petals" id="handTouchPetals" aria-hidden="true"></div>
 
         <div class="hand-touch__characters">
-          <p class="hand-touch__side-name hand-touch__side-name--left" id="handTouchGroomName">Divyesh</p>
+          <p class="hand-touch__side-name hand-touch__side-name--left" id="handTouchGroomName">દિવ્યેશ</p>
 
           <div class="hand-touch__character hand-touch__character--groom" id="handTouchGroom">
             <div class="hand-touch__figure">
               <img class="hand-touch__char-img" id="handTouchGroomImg"
-                   src="images/groom-reaching.png" alt="Divyesh" />
+                   src="images/groom-reaching.png" alt="દિવ્યેશ" />
               <div class="hand-touch__char-shadow" aria-hidden="true"></div>
             </div>
           </div>
@@ -136,16 +142,16 @@
           <div class="hand-touch__character hand-touch__character--bride" id="handTouchBride">
             <div class="hand-touch__figure">
               <img class="hand-touch__char-img" id="handTouchBrideImg"
-                   src="images/bride-reaching.png" alt="Binal" />
+                   src="images/bride-reaching.png" alt="બિનલ" />
               <div class="hand-touch__char-shadow" aria-hidden="true"></div>
             </div>
           </div>
 
-          <p class="hand-touch__side-name hand-touch__side-name--right" id="handTouchBrideName">Binal</p>
+          <p class="hand-touch__side-name hand-touch__side-name--right" id="handTouchBrideName">બિનલ</p>
         </div>
 
         <div class="hand-touch__scroll-cue hidden" id="handTouchScrollCue">
-          <p>Scroll down</p>
+          <p>નીચે સ્ક્રોલ કરો</p>
           <div class="hand-touch__scroll-arrow" aria-hidden="true"></div>
         </div>
 
@@ -167,14 +173,14 @@
     </div>
     <div class="countdown__content container">
       <header class="countdown__header">
-        <p class="section-label reveal">Counting Down</p>
-        <h2 class="section-title reveal" data-delay="120">To Our Big Day</h2>
+        <p class="section-label reveal">ગણતરી</p>
+        <h2 class="section-title reveal" data-delay="120">અમારા મહાન દિવસ સુધી</h2>
         <div class="countdown__ornament reveal" data-delay="200" aria-hidden="true">
           <span class="countdown__ornament-line"></span>
           <span class="countdown__ornament-gem">✦</span>
           <span class="countdown__ornament-line"></span>
         </div>
-        <p class="countdown__date reveal" data-delay="280">11 February 2027 · Ahmedabad</p>
+        <p class="countdown__date reveal" data-delay="280">૧૧ ફેબ્રુઆરી ૨૦૨૭ · અમદાવાદ</p>
       </header>
       <div class="countdown__grid" data-reveal-stagger data-reveal-stagger="120">
         <div class="countdown__item reveal reveal--scale">
@@ -184,7 +190,7 @@
             <div class="countdown__flip">
               <span class="countdown__num" id="days">00</span>
             </div>
-            <span class="countdown__label">Days</span>
+            <span class="countdown__label">દિવસ</span>
           </div>
         </div>
         <span class="countdown__colon reveal" aria-hidden="true">:</span>
@@ -195,7 +201,7 @@
             <div class="countdown__flip">
               <span class="countdown__num" id="hours">00</span>
             </div>
-            <span class="countdown__label">Hours</span>
+            <span class="countdown__label">કલાક</span>
           </div>
         </div>
         <span class="countdown__colon reveal" aria-hidden="true">:</span>
@@ -206,7 +212,7 @@
             <div class="countdown__flip">
               <span class="countdown__num" id="minutes">00</span>
             </div>
-            <span class="countdown__label">Minutes</span>
+            <span class="countdown__label">મિનિટ</span>
           </div>
         </div>
         <span class="countdown__colon reveal" aria-hidden="true">:</span>
@@ -217,16 +223,16 @@
             <div class="countdown__flip">
               <span class="countdown__num" id="seconds">00</span>
             </div>
-            <span class="countdown__label">Seconds</span>
+            <span class="countdown__label">સેકંડ</span>
           </div>
         </div>
       </div>
-      <p class="countdown__tagline reveal" data-delay="360">Until we say &ldquo;I do&rdquo;</p>
+      <p class="countdown__tagline reveal" data-delay="360">જ્યાં સુધી અમે &ldquo;હા&rdquo; કહીએ</p>
     </div>
   </section>
 
   <!-- Kankotri Book -->
-  <section class="kankotri" id="kankotri" aria-label="Traditional kankotri invitation">
+  <section class="kankotri" id="kankotri" aria-label="પરંપરાગત કંકોત્રી નિમંત્રણ">
     <div class="kankotri__ambient" aria-hidden="true">
       <div class="kankotri__gradient"></div>
       <div class="kankotri__pattern"></div>
@@ -240,7 +246,7 @@
 
     <div class="container kankotri__header">
       <p class="section-label reveal">લગ્ન કંકોત્રી</p>
-      <h2 class="section-title reveal" data-delay="120">Our Kankotri</h2>
+      <h2 class="section-title reveal" data-delay="120">અમારી કંકોત્રી</h2>
       <p class="kankotri__subtitle reveal" data-delay="180">ખોલવા કાર્ડ પર ટેપ કરો અથવા તીર (‹ ›) દબાવો</p>
     </div>
 
@@ -282,10 +288,10 @@
         </div>
         <p class="mhelp">પાનું ફેરવવા બાજુના તીર (‹ ›) દબાવો, કે સ્વાઇપ કરો</p>
         <div class="mdots" id="kkMDots">
-          <button type="button" class="mdot on" data-go="0" aria-label="Page 1"></button>
-          <button type="button" class="mdot" data-go="1" aria-label="Page 2"></button>
-          <button type="button" class="mdot" data-go="2" aria-label="Page 3"></button>
-          <button type="button" class="mdot" data-go="3" aria-label="Page 4"></button>
+          <button type="button" class="mdot on" data-go="0" aria-label="પાનું ૧"></button>
+          <button type="button" class="mdot" data-go="1" aria-label="પાનું ૨"></button>
+          <button type="button" class="mdot" data-go="2" aria-label="પાનું ૩"></button>
+          <button type="button" class="mdot" data-go="3" aria-label="પાનું ૪"></button>
         </div>
         </div>
       </div>
@@ -297,15 +303,15 @@
     <div class="container">
       <div class="story__grid">
         <div class="story__image reveal reveal--left">
-          <img src="images/couple-intimate-portrait.jpg" alt="Divyesh and Binal" class="story__photo" />
+          <img src="images/couple-intimate-portrait.jpg" alt="દિવ્યેશ અને બિનલ" class="story__photo" />
           <div class="story__image-frame"></div>
         </div>
         <div class="story__text reveal reveal--right">
-          <p class="section-label">Our Story</p>
-          <h2 class="section-title">Two Hearts, One Journey</h2>
-          <p>Every love story is beautiful, but ours is our favorite. What began as a chance encounter blossomed into a lifetime of laughter, adventure, and unwavering support.</p>
-          <p>Through every season, we've grown together — and now we're ready to begin the greatest chapter of all. We can't wait to share this moment with the people who mean the most to us.</p>
-          <blockquote class="story__quote">"In all the world, there is no heart for me like yours."</blockquote>
+          <p class="section-label">અમારી કહાની</p>
+          <h2 class="section-title">બે હૃદય, એક યાત્રા</h2>
+          <p>દરેક પ્રેમ કહાની સુંદર હોય છે, પણ અમારી કહાની અમારી મનપસંદ છે. એક આકસ્મિક મુલાકાતથી શરૂ થયેલું આ સફર હસી, સાહસ અને અડગ સાથની જીવનયાત્રામાં પરિણમ્યું.</p>
+          <p>દરેક ઋતુમાં અમે સાથે વધ્યા — અને હવે અમે જીવનના સૌથી મહાન અધ્યાયની શરૂઆત કરવા તૈયાર છીએ. અમારા માટે સૌથી મહત્વના લોકો સાથે આ ક્ષણ વહેંચવા અમે ઉત્સુક છીએ.</p>
+          <blockquote class="story__quote">&ldquo;તમામ સંસારમાં, મારા માટે તમારા જેવું હૃદય કોઈ નથી.&rdquo;</blockquote>
         </div>
       </div>
     </div>
@@ -329,14 +335,14 @@
     </div>
     <div class="container">
       <header class="details__header">
-        <p class="section-label reveal">When &amp; Where</p>
-        <h2 class="section-title reveal" data-delay="120">Event Details</h2>
+        <p class="section-label reveal">ક્યારે અને ક્યાં</p>
+        <h2 class="section-title reveal" data-delay="120">કાર્યક્રમ વિગતો</h2>
         <div class="details__ornament reveal" data-delay="200" aria-hidden="true">
           <span class="details__ornament-line"></span>
           <span class="details__ornament-gem">✦</span>
           <span class="details__ornament-line"></span>
         </div>
-        <p class="details__subtitle reveal" data-delay="280">Follow our celebrations — day by day, moment by moment</p>
+        <p class="details__subtitle reveal" data-delay="280">અમારા ઉત્સવો — દિવસ દર દિવસ, ક્ષણ દર ક્ષણ</p>
       </header>
 
       <div class="event-timeline" data-reveal-stagger data-reveal-stagger="120">
@@ -346,18 +352,18 @@
             <span class="event-tl__particles" aria-hidden="true"></span>
             <span class="event-tl__shine" aria-hidden="true"></span>
             <div class="event-tl__content">
-              <p class="event-tl__eyebrow">Evening Celebration</p>
-              <h3 class="event-tl__title">Sangeet</h3>
+              <p class="event-tl__eyebrow">સાંજનો ઉત્સવ</p>
+              <h3 class="event-tl__title">સંગીત</h3>
               <span class="event-tl__rule" aria-hidden="true"></span>
-              <p class="event-tl__tagline">A spirited night of song, dance and laughter</p>
+              <p class="event-tl__tagline">ગીત, નૃત્ય અને હાસ્યની ઉત્સાહભરી રાત</p>
               <dl class="event-tl__meta">
-                <div><dt>Date</dt><dd>FRI · July 17, 2026</dd></div>
-                <div><dt>Time</dt><dd>08:00 PM onwards</dd></div>
-                <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
+                <div><dt>તારીખ</dt><dd>શુક્ર · ૧૭ જુલાઈ ૨૦૨૬</dd></div>
+                <div><dt>સમય</dt><dd>રાત્રે ૮:૦૦ થી આગળ</dd></div>
+                <div><dt>સ્થળ</dt><dd>વિખાલે, ખાતવ તાલુકો, સતારા</dd></div>
               </dl>
             </div>
             <div class="event-tl__media">
-              <img src="images/event-images/couple-sangeet.png" alt="Divyesh and Binal — Sangeet" width="280" height="400" loading="lazy" decoding="async" />
+              <img src="images/event-images/couple-sangeet.png" alt="દિવ્યેશ અને બિનલ — સંગીત" width="280" height="400" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="event-tl__axis" aria-hidden="true">
@@ -376,17 +382,17 @@
           <div class="event-tl__panel">
             <span class="event-tl__shine" aria-hidden="true"></span>
             <div class="event-tl__media">
-              <img src="images/event-images/couple-gavdev.png" alt="Divyesh and Binal — Gavdev" width="280" height="400" loading="lazy" decoding="async" />
+              <img src="images/event-images/couple-gavdev.png" alt="દિવ્યેશ અને બિનલ — ગામદેવ" width="280" height="400" loading="lazy" decoding="async" />
             </div>
             <div class="event-tl__content">
-              <p class="event-tl__eyebrow">Sacred Blessings</p>
-              <h3 class="event-tl__title">Gavdev</h3>
+              <p class="event-tl__eyebrow">પવિત્ર આશીર્વાદ</p>
+              <h3 class="event-tl__title">ગામદેવ</h3>
               <span class="event-tl__rule" aria-hidden="true"></span>
-              <p class="event-tl__tagline">Seeking blessings from the village deity</p>
+              <p class="event-tl__tagline">ગામના દેવતાના આશીર્વાદ મેળવવા</p>
               <dl class="event-tl__meta">
-                <div><dt>Date</dt><dd>SAT · July 18, 2026</dd></div>
-                <div><dt>Time</dt><dd>07:00 PM onwards</dd></div>
-                <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
+                <div><dt>તારીખ</dt><dd>શનિ · ૧૮ જુલાઈ ૨૦૨૬</dd></div>
+                <div><dt>સમય</dt><dd>સાંજે ૭:૦૦ થી આગળ</dd></div>
+                <div><dt>સ્થળ</dt><dd>વિખાલે, ખાતવ તાલુકો, સતારા</dd></div>
               </dl>
             </div>
           </div>
@@ -396,18 +402,18 @@
           <div class="event-tl__panel">
             <span class="event-tl__shine" aria-hidden="true"></span>
             <div class="event-tl__content">
-              <p class="event-tl__eyebrow">Morning Ritual</p>
-              <h3 class="event-tl__title">Haldi</h3>
+              <p class="event-tl__eyebrow">સવારનો સંસ્કાર</p>
+              <h3 class="event-tl__title">હળદી</h3>
               <span class="event-tl__rule" aria-hidden="true"></span>
-              <p class="event-tl__tagline">A joyful morning of haldi, blessings and laughter</p>
+              <p class="event-tl__tagline">હળદી, આશીર્વાદ અને હાસ્યની આનંદમય સવાર</p>
               <dl class="event-tl__meta">
-                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
-                <div><dt>Time</dt><dd>11:00 AM onwards</dd></div>
-                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+                <div><dt>તારીખ</dt><dd>રવિ · ૧૯ જુલાઈ ૨૦૨૬</dd></div>
+                <div><dt>સમય</dt><dd>સવારે ૧૧:૦૦ થી આગળ</dd></div>
+                <div><dt>સ્થળ</dt><dd>ફુલાઈ ગાર્ડન, ઝિરાપવાડી, ફલટણ, સતારા</dd></div>
               </dl>
             </div>
             <div class="event-tl__media">
-              <img src="images/event-images/couple-haldi.png" alt="Divyesh and Binal — Haldi" width="280" height="400" loading="lazy" decoding="async" />
+              <img src="images/event-images/couple-haldi.png" alt="દિવ્યેશ અને બિનલ — હળદી" width="280" height="400" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="event-tl__axis" aria-hidden="true">
@@ -426,17 +432,17 @@
           <div class="event-tl__panel">
             <span class="event-tl__shine" aria-hidden="true"></span>
             <div class="event-tl__media">
-              <img src="images/event-images/couple-sapthapadi.png" alt="Divyesh and Binal — Sapthapadi" width="280" height="400" loading="lazy" decoding="async" />
+              <img src="images/event-images/couple-sapthapadi.png" alt="દિવ્યેશ અને બિનલ — સપ્તપદી" width="280" height="400" loading="lazy" decoding="async" />
             </div>
             <div class="event-tl__content">
-              <p class="event-tl__eyebrow">Sacred Vows</p>
-              <h3 class="event-tl__title">Sapthapadi</h3>
+              <p class="event-tl__eyebrow">પવિત્ર પ્રતિજ્ઞા</p>
+              <h3 class="event-tl__title">સપ્તપદી</h3>
               <span class="event-tl__rule" aria-hidden="true"></span>
-              <p class="event-tl__tagline">The sacred seven vows under the floral mandap</p>
+              <p class="event-tl__tagline">ફૂલોના મંડપ હેઠળ પવિત્ર સાત પગલાં</p>
               <dl class="event-tl__meta">
-                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
-                <div><dt>Time</dt><dd>03:48 PM</dd></div>
-                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+                <div><dt>તારીખ</dt><dd>રવિ · ૧૯ જુલાઈ ૨૦૨૬</dd></div>
+                <div><dt>સમય</dt><dd>બપોરે ૩:૪૮</dd></div>
+                <div><dt>સ્થળ</dt><dd>ફુલાઈ ગાર્ડન, ઝિરાપવાડી, ફલટણ, સતારા</dd></div>
               </dl>
             </div>
           </div>
@@ -447,18 +453,18 @@
             <span class="event-tl__particles event-tl__particles--gold" aria-hidden="true"></span>
             <span class="event-tl__shine" aria-hidden="true"></span>
             <div class="event-tl__content">
-              <p class="event-tl__eyebrow">Grand Finale</p>
-              <h3 class="event-tl__title">Varmala</h3>
+              <p class="event-tl__eyebrow">ભવ્ય સમાપન</p>
+              <h3 class="event-tl__title">વરમાળ</h3>
               <span class="event-tl__rule" aria-hidden="true"></span>
-              <p class="event-tl__tagline">The exchange of garlands and a joyous celebration</p>
+              <p class="event-tl__tagline">વરમાળનું આદાન-પ્રદાન અને આનંદમય ઉજવણી</p>
               <dl class="event-tl__meta">
-                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
-                <div><dt>Time</dt><dd>06:15 PM</dd></div>
-                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+                <div><dt>તારીખ</dt><dd>રવિ · ૧૯ જુલાઈ ૨૦૨૬</dd></div>
+                <div><dt>સમય</dt><dd>સાંજે ૬:૧૫</dd></div>
+                <div><dt>સ્થળ</dt><dd>ફુલાઈ ગાર્ડન, ઝિરાપવાડી, ફલટણ, સતારા</dd></div>
               </dl>
             </div>
             <div class="event-tl__media">
-              <img src="images/event-images/couple-varmala.png" alt="Divyesh and Binal — Varmala" width="280" height="400" loading="lazy" decoding="async" />
+              <img src="images/event-images/couple-varmala.png" alt="દિવ્યેશ અને બિનલ — વરમાળ" width="280" height="400" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="event-tl__axis" aria-hidden="true">
@@ -474,22 +480,22 @@
   <!-- Gallery -->
   <section class="gallery" id="gallery">
     <div class="container">
-      <p class="section-label reveal">Memories</p>
-      <h2 class="section-title reveal" data-delay="120">Our Gallery</h2>
+      <p class="section-label reveal">યાદો</p>
+      <h2 class="section-title reveal" data-delay="120">અમારી ગેલેરી</h2>
     </div>
-    <div class="gallery__slider" aria-label="Photo gallery carousel">
+    <div class="gallery__slider" aria-label="ફોટો ગેલેરી કેરોસલ">
       <div class="gallery__track">
         <div class="gallery__marquee">
           <div class="gallery__strip">
-            <div class="gallery__item"><img src="images/couple-beach-sunset.png" alt="Divyesh and Binal on the beach" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-mountains.png" alt="Divyesh and Binal in the mountains" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-animated-sunset.png" alt="Divyesh and Binal at sunset" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-fairy-lights.png" alt="Divyesh and Binal under fairy lights" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-palace-canal.png" alt="Divyesh and Binal at the palace" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-lake-proposal.png" alt="Divyesh and Binal lake proposal" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-playful-portrait.jpg" alt="Divyesh and Binal playful portrait" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/couple-lanterns-embrace.png" alt="Divyesh and Binal lantern embrace" width="320" height="400" loading="lazy" decoding="async" /></div>
-            <div class="gallery__item"><img src="images/save-the-date.png" alt="Save the Date" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-beach-sunset.png" alt="દિવ્યેશ અને બિનલ સમુદ્ર કિનારે" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-mountains.png" alt="દિવ્યેશ અને બિનલ પર્વતમાં" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-animated-sunset.png" alt="દિવ્યેશ અને બિનલ સૂર્યાસ્ત સમયે" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-fairy-lights.png" alt="દિવ્યેશ અને બિનલ ફેરી લાઇટ્સ હેઠળ" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-palace-canal.png" alt="દિવ્યેશ અને બિનલ મહેલ પાસે" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lake-proposal.png" alt="દિવ્યેશ અને બિનલ તળાવ પાસે" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-playful-portrait.jpg" alt="દિવ્યેશ અને બિનલની મનમોજા તસવીર" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lanterns-embrace.png" alt="દિવ્યેશ અને બિનલ લાઇટન સાથે" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/save-the-date.png" alt="તારીખ યાદ રાખો" width="320" height="400" loading="lazy" decoding="async" /></div>
           </div>
           <div class="gallery__strip" aria-hidden="true">
             <div class="gallery__item"><img src="images/couple-beach-sunset.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
@@ -509,23 +515,53 @@
 
   <footer class="footer">
     <div class="container reveal reveal--fade">
-      <p class="footer__names">Divyesh & Binal</p>
-      <p class="footer__date">11 February 2027</p>
+      <p class="footer__names">દિવ્યેશ અને બિનલ</p>
+      <p class="footer__date">૧૧ ફેબ્રુઆરી ૨૦૨૭</p>
       <p class="footer__hashtag">#DivyeshAndBinal</p>
-      <p class="footer__copy">Made with love</p>
+      <p class="footer__copy">પ્રેમથી બનાવેલું</p>
     </div>
   </footer>
+
+  <!-- Background music -->
+  <audio id="siteAudio" preload="auto" loop playsinline aria-hidden="true">
+    <source src="audio/background.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="site-audio" id="siteAudioControl" aria-live="polite">
+    <button
+      type="button"
+      class="site-audio__btn"
+      id="siteAudioToggle"
+      aria-label="અવાજ બંધ કરો"
+      aria-pressed="false"
+      title="અવાજ બંધ કરો"
+    >
+      <svg class="site-audio__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <g class="site-audio__state site-audio__state--on">
+          <path d="M11 5 6 9H3v6h3l5 4V5z"/>
+          <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+          <path d="M17.8 6.2a8.5 8.5 0 0 1 0 11.6"/>
+        </g>
+        <g class="site-audio__state site-audio__state--off">
+          <path d="M11 5 6 9H3v6h3l5 4V5z"/>
+          <path d="m18 8 4 8"/>
+          <path d="m22 8-4 8"/>
+        </g>
+      </svg>
+    </button>
+  </div>
 
   <script src="js/space-intro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
   <script src="js/mandala-cloud.js"></script>
   <script src="js/mandala-svg.js"></script>
-  <script src="js/sand.js"></script>
+  <script src="js/sparkles-text.js"></script>
   <script src="js/scroll-reveal.js"></script>
   <script src="js/hand-touch.js"></script>
   <script src="js/kankotri-book.js"></script>
   <script src="js/event-details.js"></script>
   <script src="js/countdown.js"></script>
+  <script src="js/site-audio.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

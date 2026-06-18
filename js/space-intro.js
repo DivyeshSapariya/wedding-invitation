@@ -174,12 +174,17 @@
   function finishIntro(introEl, bgInstance) {
     if (!introEl || introEl.classList.contains('is-exiting')) return;
 
+    document.body.classList.add('site-reveal');
+    window.dispatchEvent(new Event('intro:exiting'));
+
     introEl.classList.add('is-exiting');
+    document.documentElement.classList.remove('intro-active');
     document.body.classList.remove('intro-active');
 
     const cleanup = () => {
       bgInstance?.destroy();
       introEl.remove();
+      window.scrollTo(0, 0);
       window.dispatchEvent(new Event('intro:complete'));
     };
 
@@ -191,11 +196,16 @@
     const introEl = document.getElementById('space-intro');
     const canvas = document.getElementById('space-intro-canvas');
     if (!introEl || !canvas) {
+      document.documentElement.classList.remove('intro-active');
+      document.body.classList.remove('intro-active');
+      document.body.classList.add('site-reveal');
+      window.dispatchEvent(new Event('intro:exiting'));
       window.dispatchEvent(new Event('intro:complete'));
       return;
     }
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('intro-active');
     document.body.classList.add('intro-active');
 
     if (reduced) {
