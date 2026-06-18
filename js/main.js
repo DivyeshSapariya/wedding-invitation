@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initHandTouchSection();
   initKankotriBook();
+  initEventCards();
 
   initHeroSandText();
 });
@@ -80,12 +81,6 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
-
-document.querySelectorAll('.timeline__item').forEach(item => {
-  const time = item.querySelector('.timeline__time')?.textContent;
-  const content = item.querySelector('.timeline__content');
-  if (time && content) content.setAttribute('data-time', time);
-});
 
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {

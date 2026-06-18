@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Rasa:wght@400;500;600;700&family=Mukta+Vaani:wght@400;500;600;700&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="css/kankotri-book.css" />
+  <link rel="stylesheet" href="css/event-details.css" />
 </head>
 <body>
 
@@ -25,7 +26,6 @@
         <li><a href="#kankotri">Kankotri</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#details">Details</a></li>
-        <li><a href="#schedule">Schedule</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
     </div>
@@ -249,84 +249,163 @@
 
   <!-- Event Details -->
   <section class="details" id="details">
-    <div class="container">
-      <p class="section-label reveal">When & Where</p>
-      <h2 class="section-title reveal" data-delay="120">Event Details</h2>
-      <div class="details__grid" data-reveal-stagger data-reveal-stagger="160">
-        <div class="detail-card reveal reveal--up">
-          <div class="detail-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <h3>The Ceremony</h3>
-          <p class="detail-card__date">Thursday, 11 February 2027</p>
-          <p class="detail-card__time">4:00 PM onwards</p>
-          <p class="detail-card__venue">Grand Heritage Gardens</p>
-          <p class="detail-card__address">Ahmedabad, Gujarat</p>
-          <a href="https://maps.google.com" target="_blank" rel="noopener" class="detail-card__link">View on Map →</a>
-        </div>
-        <div class="detail-card reveal reveal--up">
-          <div class="detail-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h3>The Reception</h3>
-          <p class="detail-card__date">Thursday, 11 February 2027</p>
-          <p class="detail-card__time">7:00 PM onwards</p>
-          <p class="detail-card__venue">Grand Heritage Gardens</p>
-          <p class="detail-card__address">Ahmedabad, Gujarat</p>
-          <a href="https://maps.google.com" target="_blank" rel="noopener" class="detail-card__link">View on Map →</a>
-        </div>
-      </div>
+    <div class="details__toran" aria-hidden="true"></div>
+    <div class="details__ambient" aria-hidden="true">
+      <span class="details__petal details__petal--1"></span>
+      <span class="details__petal details__petal--2"></span>
+      <span class="details__petal details__petal--3"></span>
+      <span class="details__petal details__petal--4"></span>
+      <span class="details__petal details__petal--5"></span>
+      <span class="details__leaf details__leaf--1"></span>
+      <span class="details__leaf details__leaf--2"></span>
+      <span class="details__leaf details__leaf--3"></span>
+      <span class="details__spark details__spark--1"></span>
+      <span class="details__spark details__spark--2"></span>
+      <span class="details__spark details__spark--3"></span>
     </div>
-  </section>
-
-  <!-- Schedule -->
-  <section class="schedule" id="schedule">
     <div class="container">
-      <p class="section-label reveal">The Day</p>
-      <h2 class="section-title reveal" data-delay="120">Wedding Schedule</h2>
-      <div class="timeline" data-reveal-stagger data-reveal-stagger="100">
-        <div class="timeline__item reveal reveal--left" data-time="3:30 PM">
-          <span class="timeline__time">3:30 PM</span>
-          <div class="timeline__dot"></div>
-          <div class="timeline__content"><h3>Guest Arrival</h3><p>Welcome drinks and seating</p></div>
+      <header class="details__header">
+        <p class="section-label reveal">When &amp; Where</p>
+        <h2 class="section-title reveal" data-delay="120">Event Details</h2>
+        <div class="details__ornament reveal" data-delay="200" aria-hidden="true">
+          <span class="details__ornament-line"></span>
+          <span class="details__ornament-gem">✦</span>
+          <span class="details__ornament-line"></span>
         </div>
-        <div class="timeline__item reveal reveal--left" data-time="4:00 PM">
-          <span class="timeline__time">4:00 PM</span>
-          <div class="timeline__dot"></div>
-          <div class="timeline__content"><h3>Wedding Ceremony</h3><p>The exchange of vows</p></div>
-        </div>
-        <div class="timeline__item reveal reveal--left" data-time="5:30 PM">
-          <span class="timeline__time">5:30 PM</span>
-          <div class="timeline__dot"></div>
-          <div class="timeline__content"><h3>Cocktail Hour</h3><p>Photos and refreshments</p></div>
-        </div>
-        <div class="timeline__item reveal reveal--left" data-time="7:00 PM">
-          <span class="timeline__time">7:00 PM</span>
-          <div class="timeline__dot"></div>
-          <div class="timeline__content"><h3>Reception & Dinner</h3><p>Dinner, dancing, and celebration</p></div>
-        </div>
-        <div class="timeline__item reveal reveal--left" data-time="11:00 PM">
-          <span class="timeline__time">11:00 PM</span>
-          <div class="timeline__dot"></div>
-          <div class="timeline__content"><h3>Grand Finale</h3><p>Sparkler send-off</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <p class="details__subtitle reveal" data-delay="280">Five sacred celebrations on our journey to forever</p>
+      </header>
 
-  <!-- Dress Code -->
-  <section class="dresscode">
-    <div class="container reveal reveal--fade">
-      <p class="section-label">Attire</p>
-      <h2 class="section-title">Dress Code</h2>
-      <p class="dresscode__text">Formal / Traditional Indian attire</p>
-      <div class="dresscode__colors">
-        <span class="dresscode__swatch" style="--swatch: #8B4557" title="Burgundy"></span>
-        <span class="dresscode__swatch" style="--swatch: #d4af37" title="Gold"></span>
-        <span class="dresscode__swatch" style="--swatch: #c97b8b" title="Rose"></span>
-        <span class="dresscode__swatch" style="--swatch: #1a1f2e" title="Navy"></span>
+      <div class="event-cards" data-reveal-stagger data-reveal-stagger="140">
+        <article class="event-card event-card--sangeet reveal reveal--scale">
+          <div class="event-card__bg" aria-hidden="true"><span class="event-card__stars"></span></div>
+          <div class="event-card__frame" aria-hidden="true"></div>
+          <div class="event-card__decor" aria-hidden="true"></div>
+          <div class="event-card__vignette" aria-hidden="true"></div>
+          <div class="event-card__shine" aria-hidden="true"></div>
+          <span class="event-card__index" aria-hidden="true">01</span>
+          <div class="event-card__inner">
+            <div class="event-card__figure">
+              <span class="event-card__stage" aria-hidden="true"></span>
+              <img src="images/event-images/couple-sangeet.png" alt="Divyesh and Binal — Sangeet" width="320" height="480" loading="lazy" decoding="async" />
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__eyebrow">Evening Celebration</p>
+              <h3 class="event-card__title">Sangeet</h3>
+              <span class="event-card__rule" aria-hidden="true"></span>
+              <p class="event-card__tagline">A spirited night of song, dance and laughter</p>
+              <dl class="event-card__meta">
+                <div><dt>Date</dt><dd>FRI · July 17, 2026</dd></div>
+                <div><dt>Time</dt><dd>08:00 PM onwards</dd></div>
+                <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card event-card--gavdev event-card--reverse reveal reveal--scale">
+          <div class="event-card__bg" aria-hidden="true"></div>
+          <div class="event-card__frame" aria-hidden="true"></div>
+          <div class="event-card__decor" aria-hidden="true"></div>
+          <div class="event-card__vignette" aria-hidden="true"></div>
+          <div class="event-card__shine" aria-hidden="true"></div>
+          <span class="event-card__index" aria-hidden="true">02</span>
+          <div class="event-card__inner">
+            <div class="event-card__figure">
+              <span class="event-card__stage" aria-hidden="true"></span>
+              <img src="images/event-images/couple-gavdev.png" alt="Divyesh and Binal — Gavdev" width="320" height="480" loading="lazy" decoding="async" />
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__eyebrow">Sacred Blessings</p>
+              <h3 class="event-card__title">Gavdev</h3>
+              <span class="event-card__rule" aria-hidden="true"></span>
+              <p class="event-card__tagline">Seeking blessings from the village deity</p>
+              <dl class="event-card__meta">
+                <div><dt>Date</dt><dd>SAT · July 18, 2026</dd></div>
+                <div><dt>Time</dt><dd>07:00 PM onwards</dd></div>
+                <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card event-card--haldi reveal reveal--scale">
+          <div class="event-card__bg" aria-hidden="true"></div>
+          <div class="event-card__frame" aria-hidden="true"></div>
+          <div class="event-card__decor" aria-hidden="true"></div>
+          <div class="event-card__vignette" aria-hidden="true"></div>
+          <div class="event-card__shine" aria-hidden="true"></div>
+          <span class="event-card__index" aria-hidden="true">03</span>
+          <div class="event-card__inner">
+            <div class="event-card__figure">
+              <span class="event-card__stage" aria-hidden="true"></span>
+              <img src="images/event-images/couple-haldi.png" alt="Divyesh and Binal — Haldi" width="320" height="480" loading="lazy" decoding="async" />
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__eyebrow">Morning Ritual</p>
+              <h3 class="event-card__title">Haldi</h3>
+              <span class="event-card__rule" aria-hidden="true"></span>
+              <p class="event-card__tagline">A joyful morning of haldi, blessings and laughter</p>
+              <dl class="event-card__meta">
+                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
+                <div><dt>Time</dt><dd>11:00 AM onwards</dd></div>
+                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card event-card--sapthapadi event-card--reverse reveal reveal--scale">
+          <div class="event-card__bg" aria-hidden="true"></div>
+          <div class="event-card__frame" aria-hidden="true"></div>
+          <div class="event-card__decor" aria-hidden="true"></div>
+          <div class="event-card__vignette" aria-hidden="true"></div>
+          <div class="event-card__shine" aria-hidden="true"></div>
+          <span class="event-card__index" aria-hidden="true">04</span>
+          <div class="event-card__inner">
+            <div class="event-card__figure">
+              <span class="event-card__stage" aria-hidden="true"></span>
+              <img src="images/event-images/couple-sapthapadi.png" alt="Divyesh and Binal — Sapthapadi" width="320" height="480" loading="lazy" decoding="async" />
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__eyebrow">Sacred Vows</p>
+              <h3 class="event-card__title">Sapthapadi</h3>
+              <span class="event-card__rule" aria-hidden="true"></span>
+              <p class="event-card__tagline">The sacred seven vows under the floral mandap</p>
+              <dl class="event-card__meta">
+                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
+                <div><dt>Time</dt><dd>03:48 PM</dd></div>
+                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card event-card--varmala event-card--featured reveal reveal--scale">
+          <div class="event-card__bg" aria-hidden="true"><span class="event-card__glow"></span></div>
+          <div class="event-card__frame" aria-hidden="true"></div>
+          <div class="event-card__decor" aria-hidden="true"></div>
+          <div class="event-card__vignette" aria-hidden="true"></div>
+          <div class="event-card__shine" aria-hidden="true"></div>
+          <span class="event-card__index" aria-hidden="true">05</span>
+          <div class="event-card__inner">
+            <div class="event-card__figure">
+              <span class="event-card__stage" aria-hidden="true"></span>
+              <img src="images/event-images/couple-varmala.png" alt="Divyesh and Binal — Varmala" width="320" height="480" loading="lazy" decoding="async" />
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__eyebrow">Grand Finale</p>
+              <h3 class="event-card__title">Varmala</h3>
+              <span class="event-card__rule" aria-hidden="true"></span>
+              <p class="event-card__tagline">The exchange of garlands and a joyous celebration</p>
+              <dl class="event-card__meta">
+                <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
+                <div><dt>Time</dt><dd>06:15 PM</dd></div>
+                <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
       </div>
-      <p class="dresscode__note">We kindly request guests to avoid wearing white.</p>
     </div>
   </section>
 
@@ -365,6 +444,7 @@
   <script src="js/scroll-reveal.js"></script>
   <script src="js/hand-touch.js"></script>
   <script src="js/kankotri-book.js"></script>
+  <script src="js/event-details.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
