@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHandTouchSection();
   initKankotriBook();
   initEventCards();
+  initCountdown(WEDDING_DATE);
 
   initHeroSandText();
 });
@@ -58,29 +59,6 @@ navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
-
-function updateCountdown() {
-  const diff = WEDDING_DATE - new Date();
-  const ids = ['days', 'hours', 'minutes', 'seconds'];
-
-  if (diff <= 0) {
-    ids.forEach(id => { document.getElementById(id).textContent = '00'; });
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {

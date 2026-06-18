@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="css/kankotri-book.css" />
   <link rel="stylesheet" href="css/event-details.css" />
+  <link rel="stylesheet" href="css/countdown.css" />
 </head>
 <body>
 
@@ -135,29 +136,75 @@
     </div>
   </section>
 
-  <!-- Countdown with Sand Animation -->
+  <!-- Countdown -->
   <section class="countdown" id="countdown">
+    <div class="countdown__ambient" aria-hidden="true">
+      <span class="countdown__orb countdown__orb--1"></span>
+      <span class="countdown__orb countdown__orb--2"></span>
+      <span class="countdown__orb countdown__orb--3"></span>
+      <span class="countdown__spark countdown__spark--1"></span>
+      <span class="countdown__spark countdown__spark--2"></span>
+      <span class="countdown__spark countdown__spark--3"></span>
+      <span class="countdown__spark countdown__spark--4"></span>
+      <div class="countdown__ring"></div>
+    </div>
     <div class="countdown__content container">
-      <p class="section-label reveal">Counting Down</p>
-      <h2 class="section-title reveal" data-delay="120">To Our Big Day</h2>
-      <div class="countdown__grid" data-reveal-stagger data-reveal-stagger="140">
-        <div class="countdown__item reveal reveal--scale">
-          <span class="countdown__num" id="days">00</span>
-          <span class="countdown__label">Days</span>
+      <header class="countdown__header">
+        <p class="section-label reveal">Counting Down</p>
+        <h2 class="section-title reveal" data-delay="120">To Our Big Day</h2>
+        <div class="countdown__ornament reveal" data-delay="200" aria-hidden="true">
+          <span class="countdown__ornament-line"></span>
+          <span class="countdown__ornament-gem">✦</span>
+          <span class="countdown__ornament-line"></span>
         </div>
+        <p class="countdown__date reveal" data-delay="280">11 February 2027 · Ahmedabad</p>
+      </header>
+      <div class="countdown__grid" data-reveal-stagger data-reveal-stagger="120">
         <div class="countdown__item reveal reveal--scale">
-          <span class="countdown__num" id="hours">00</span>
-          <span class="countdown__label">Hours</span>
+          <div class="countdown__card" data-unit="days">
+            <span class="countdown__card-glow" aria-hidden="true"></span>
+            <span class="countdown__shine" aria-hidden="true"></span>
+            <div class="countdown__flip">
+              <span class="countdown__num" id="days">00</span>
+            </div>
+            <span class="countdown__label">Days</span>
+          </div>
         </div>
+        <span class="countdown__colon reveal" aria-hidden="true">:</span>
         <div class="countdown__item reveal reveal--scale">
-          <span class="countdown__num" id="minutes">00</span>
-          <span class="countdown__label">Minutes</span>
+          <div class="countdown__card" data-unit="hours">
+            <span class="countdown__card-glow" aria-hidden="true"></span>
+            <span class="countdown__shine" aria-hidden="true"></span>
+            <div class="countdown__flip">
+              <span class="countdown__num" id="hours">00</span>
+            </div>
+            <span class="countdown__label">Hours</span>
+          </div>
         </div>
+        <span class="countdown__colon reveal" aria-hidden="true">:</span>
         <div class="countdown__item reveal reveal--scale">
-          <span class="countdown__num" id="seconds">00</span>
-          <span class="countdown__label">Seconds</span>
+          <div class="countdown__card" data-unit="minutes">
+            <span class="countdown__card-glow" aria-hidden="true"></span>
+            <span class="countdown__shine" aria-hidden="true"></span>
+            <div class="countdown__flip">
+              <span class="countdown__num" id="minutes">00</span>
+            </div>
+            <span class="countdown__label">Minutes</span>
+          </div>
+        </div>
+        <span class="countdown__colon reveal" aria-hidden="true">:</span>
+        <div class="countdown__item reveal reveal--scale">
+          <div class="countdown__card countdown__card--seconds" data-unit="seconds">
+            <span class="countdown__card-glow" aria-hidden="true"></span>
+            <span class="countdown__shine" aria-hidden="true"></span>
+            <div class="countdown__flip">
+              <span class="countdown__num" id="seconds">00</span>
+            </div>
+            <span class="countdown__label">Seconds</span>
+          </div>
         </div>
       </div>
+      <p class="countdown__tagline reveal" data-delay="360">Until we say &ldquo;I do&rdquo;</p>
     </div>
   </section>
 
@@ -272,54 +319,54 @@
           <span class="details__ornament-gem">✦</span>
           <span class="details__ornament-line"></span>
         </div>
-        <p class="details__subtitle reveal" data-delay="280">Five sacred celebrations on our journey to forever</p>
+        <p class="details__subtitle reveal" data-delay="280">Follow our celebrations — day by day, moment by moment</p>
       </header>
 
-      <div class="event-cards" data-reveal-stagger data-reveal-stagger="140">
-        <article class="event-card event-card--sangeet reveal reveal--scale">
-          <div class="event-card__bg" aria-hidden="true"><span class="event-card__stars"></span></div>
-          <div class="event-card__frame" aria-hidden="true"></div>
-          <div class="event-card__decor" aria-hidden="true"></div>
-          <div class="event-card__vignette" aria-hidden="true"></div>
-          <div class="event-card__shine" aria-hidden="true"></div>
-          <span class="event-card__index" aria-hidden="true">01</span>
-          <div class="event-card__inner">
-            <div class="event-card__figure">
-              <span class="event-card__stage" aria-hidden="true"></span>
-              <img src="images/event-images/couple-sangeet.png" alt="Divyesh and Binal — Sangeet" width="320" height="480" loading="lazy" decoding="async" />
-            </div>
-            <div class="event-card__body">
-              <p class="event-card__eyebrow">Evening Celebration</p>
-              <h3 class="event-card__title">Sangeet</h3>
-              <span class="event-card__rule" aria-hidden="true"></span>
-              <p class="event-card__tagline">A spirited night of song, dance and laughter</p>
-              <dl class="event-card__meta">
+      <div class="event-timeline" data-reveal-stagger data-reveal-stagger="120">
+        <div class="event-timeline__glow" aria-hidden="true"></div>
+        <article class="event-tl event-tl--sangeet event-tl--left reveal reveal--left">
+          <div class="event-tl__panel">
+            <span class="event-tl__particles" aria-hidden="true"></span>
+            <span class="event-tl__shine" aria-hidden="true"></span>
+            <div class="event-tl__content">
+              <p class="event-tl__eyebrow">Evening Celebration</p>
+              <h3 class="event-tl__title">Sangeet</h3>
+              <span class="event-tl__rule" aria-hidden="true"></span>
+              <p class="event-tl__tagline">A spirited night of song, dance and laughter</p>
+              <dl class="event-tl__meta">
                 <div><dt>Date</dt><dd>FRI · July 17, 2026</dd></div>
                 <div><dt>Time</dt><dd>08:00 PM onwards</dd></div>
                 <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
               </dl>
             </div>
+            <div class="event-tl__media">
+              <img src="images/event-images/couple-sangeet.png" alt="Divyesh and Binal — Sangeet" width="280" height="400" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="event-tl__axis" aria-hidden="true">
+            <span class="event-tl__ring"></span>
+            <span class="event-tl__ring event-tl__ring--delay"></span>
+            <span class="event-tl__dot"><span class="event-tl__dot-label">01</span></span>
           </div>
         </article>
 
-        <article class="event-card event-card--gavdev event-card--reverse reveal reveal--scale">
-          <div class="event-card__bg" aria-hidden="true"></div>
-          <div class="event-card__frame" aria-hidden="true"></div>
-          <div class="event-card__decor" aria-hidden="true"></div>
-          <div class="event-card__vignette" aria-hidden="true"></div>
-          <div class="event-card__shine" aria-hidden="true"></div>
-          <span class="event-card__index" aria-hidden="true">02</span>
-          <div class="event-card__inner">
-            <div class="event-card__figure">
-              <span class="event-card__stage" aria-hidden="true"></span>
-              <img src="images/event-images/couple-gavdev.png" alt="Divyesh and Binal — Gavdev" width="320" height="480" loading="lazy" decoding="async" />
+        <article class="event-tl event-tl--gavdev event-tl--right reveal reveal--right">
+          <div class="event-tl__axis" aria-hidden="true">
+            <span class="event-tl__ring"></span>
+            <span class="event-tl__ring event-tl__ring--delay"></span>
+            <span class="event-tl__dot"><span class="event-tl__dot-label">02</span></span>
+          </div>
+          <div class="event-tl__panel">
+            <span class="event-tl__shine" aria-hidden="true"></span>
+            <div class="event-tl__media">
+              <img src="images/event-images/couple-gavdev.png" alt="Divyesh and Binal — Gavdev" width="280" height="400" loading="lazy" decoding="async" />
             </div>
-            <div class="event-card__body">
-              <p class="event-card__eyebrow">Sacred Blessings</p>
-              <h3 class="event-card__title">Gavdev</h3>
-              <span class="event-card__rule" aria-hidden="true"></span>
-              <p class="event-card__tagline">Seeking blessings from the village deity</p>
-              <dl class="event-card__meta">
+            <div class="event-tl__content">
+              <p class="event-tl__eyebrow">Sacred Blessings</p>
+              <h3 class="event-tl__title">Gavdev</h3>
+              <span class="event-tl__rule" aria-hidden="true"></span>
+              <p class="event-tl__tagline">Seeking blessings from the village deity</p>
+              <dl class="event-tl__meta">
                 <div><dt>Date</dt><dd>SAT · July 18, 2026</dd></div>
                 <div><dt>Time</dt><dd>07:00 PM onwards</dd></div>
                 <div><dt>Venue</dt><dd>Vikhale, Khatav Taluka, Satara</dd></div>
@@ -328,50 +375,48 @@
           </div>
         </article>
 
-        <article class="event-card event-card--haldi reveal reveal--scale">
-          <div class="event-card__bg" aria-hidden="true"></div>
-          <div class="event-card__frame" aria-hidden="true"></div>
-          <div class="event-card__decor" aria-hidden="true"></div>
-          <div class="event-card__vignette" aria-hidden="true"></div>
-          <div class="event-card__shine" aria-hidden="true"></div>
-          <span class="event-card__index" aria-hidden="true">03</span>
-          <div class="event-card__inner">
-            <div class="event-card__figure">
-              <span class="event-card__stage" aria-hidden="true"></span>
-              <img src="images/event-images/couple-haldi.png" alt="Divyesh and Binal — Haldi" width="320" height="480" loading="lazy" decoding="async" />
-            </div>
-            <div class="event-card__body">
-              <p class="event-card__eyebrow">Morning Ritual</p>
-              <h3 class="event-card__title">Haldi</h3>
-              <span class="event-card__rule" aria-hidden="true"></span>
-              <p class="event-card__tagline">A joyful morning of haldi, blessings and laughter</p>
-              <dl class="event-card__meta">
+        <article class="event-tl event-tl--haldi event-tl--left reveal reveal--left">
+          <div class="event-tl__panel">
+            <span class="event-tl__shine" aria-hidden="true"></span>
+            <div class="event-tl__content">
+              <p class="event-tl__eyebrow">Morning Ritual</p>
+              <h3 class="event-tl__title">Haldi</h3>
+              <span class="event-tl__rule" aria-hidden="true"></span>
+              <p class="event-tl__tagline">A joyful morning of haldi, blessings and laughter</p>
+              <dl class="event-tl__meta">
                 <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
                 <div><dt>Time</dt><dd>11:00 AM onwards</dd></div>
                 <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
               </dl>
             </div>
+            <div class="event-tl__media">
+              <img src="images/event-images/couple-haldi.png" alt="Divyesh and Binal — Haldi" width="280" height="400" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="event-tl__axis" aria-hidden="true">
+            <span class="event-tl__ring"></span>
+            <span class="event-tl__ring event-tl__ring--delay"></span>
+            <span class="event-tl__dot"><span class="event-tl__dot-label">03</span></span>
           </div>
         </article>
 
-        <article class="event-card event-card--sapthapadi event-card--reverse reveal reveal--scale">
-          <div class="event-card__bg" aria-hidden="true"></div>
-          <div class="event-card__frame" aria-hidden="true"></div>
-          <div class="event-card__decor" aria-hidden="true"></div>
-          <div class="event-card__vignette" aria-hidden="true"></div>
-          <div class="event-card__shine" aria-hidden="true"></div>
-          <span class="event-card__index" aria-hidden="true">04</span>
-          <div class="event-card__inner">
-            <div class="event-card__figure">
-              <span class="event-card__stage" aria-hidden="true"></span>
-              <img src="images/event-images/couple-sapthapadi.png" alt="Divyesh and Binal — Sapthapadi" width="320" height="480" loading="lazy" decoding="async" />
+        <article class="event-tl event-tl--sapthapadi event-tl--right reveal reveal--right">
+          <div class="event-tl__axis" aria-hidden="true">
+            <span class="event-tl__ring"></span>
+            <span class="event-tl__ring event-tl__ring--delay"></span>
+            <span class="event-tl__dot"><span class="event-tl__dot-label">04</span></span>
+          </div>
+          <div class="event-tl__panel">
+            <span class="event-tl__shine" aria-hidden="true"></span>
+            <div class="event-tl__media">
+              <img src="images/event-images/couple-sapthapadi.png" alt="Divyesh and Binal — Sapthapadi" width="280" height="400" loading="lazy" decoding="async" />
             </div>
-            <div class="event-card__body">
-              <p class="event-card__eyebrow">Sacred Vows</p>
-              <h3 class="event-card__title">Sapthapadi</h3>
-              <span class="event-card__rule" aria-hidden="true"></span>
-              <p class="event-card__tagline">The sacred seven vows under the floral mandap</p>
-              <dl class="event-card__meta">
+            <div class="event-tl__content">
+              <p class="event-tl__eyebrow">Sacred Vows</p>
+              <h3 class="event-tl__title">Sapthapadi</h3>
+              <span class="event-tl__rule" aria-hidden="true"></span>
+              <p class="event-tl__tagline">The sacred seven vows under the floral mandap</p>
+              <dl class="event-tl__meta">
                 <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
                 <div><dt>Time</dt><dd>03:48 PM</dd></div>
                 <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
@@ -380,29 +425,29 @@
           </div>
         </article>
 
-        <article class="event-card event-card--varmala event-card--featured reveal reveal--scale">
-          <div class="event-card__bg" aria-hidden="true"><span class="event-card__glow"></span></div>
-          <div class="event-card__frame" aria-hidden="true"></div>
-          <div class="event-card__decor" aria-hidden="true"></div>
-          <div class="event-card__vignette" aria-hidden="true"></div>
-          <div class="event-card__shine" aria-hidden="true"></div>
-          <span class="event-card__index" aria-hidden="true">05</span>
-          <div class="event-card__inner">
-            <div class="event-card__figure">
-              <span class="event-card__stage" aria-hidden="true"></span>
-              <img src="images/event-images/couple-varmala.png" alt="Divyesh and Binal — Varmala" width="320" height="480" loading="lazy" decoding="async" />
-            </div>
-            <div class="event-card__body">
-              <p class="event-card__eyebrow">Grand Finale</p>
-              <h3 class="event-card__title">Varmala</h3>
-              <span class="event-card__rule" aria-hidden="true"></span>
-              <p class="event-card__tagline">The exchange of garlands and a joyous celebration</p>
-              <dl class="event-card__meta">
+        <article class="event-tl event-tl--varmala event-tl--left event-tl--featured reveal reveal--scale">
+          <div class="event-tl__panel">
+            <span class="event-tl__particles event-tl__particles--gold" aria-hidden="true"></span>
+            <span class="event-tl__shine" aria-hidden="true"></span>
+            <div class="event-tl__content">
+              <p class="event-tl__eyebrow">Grand Finale</p>
+              <h3 class="event-tl__title">Varmala</h3>
+              <span class="event-tl__rule" aria-hidden="true"></span>
+              <p class="event-tl__tagline">The exchange of garlands and a joyous celebration</p>
+              <dl class="event-tl__meta">
                 <div><dt>Date</dt><dd>SUN · July 19, 2026</dd></div>
                 <div><dt>Time</dt><dd>06:15 PM</dd></div>
                 <div><dt>Venue</dt><dd>Fulai Garden, Zirapwadi, Phaltan, Satara</dd></div>
               </dl>
             </div>
+            <div class="event-tl__media">
+              <img src="images/event-images/couple-varmala.png" alt="Divyesh and Binal — Varmala" width="280" height="400" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="event-tl__axis" aria-hidden="true">
+            <span class="event-tl__ring"></span>
+            <span class="event-tl__ring event-tl__ring--delay"></span>
+            <span class="event-tl__dot event-tl__dot--featured"><span class="event-tl__dot-label">05</span></span>
           </div>
         </article>
       </div>
@@ -414,16 +459,33 @@
     <div class="container">
       <p class="section-label reveal">Memories</p>
       <h2 class="section-title reveal" data-delay="120">Our Gallery</h2>
-      <div class="gallery__grid" data-reveal-stagger data-reveal-stagger="80">
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-beach-sunset.png" alt="Divyesh and Binal on the beach" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-mountains.png" alt="Divyesh and Binal in the mountains" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-animated-sunset.png" alt="Divyesh and Binal at sunset" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-fairy-lights.png" alt="Divyesh and Binal under fairy lights" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-palace-canal.png" alt="Divyesh and Binal at the palace" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-lake-proposal.png" alt="Divyesh and Binal lake proposal" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-playful-portrait.jpg" alt="Divyesh and Binal playful portrait" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/couple-lanterns-embrace.png" alt="Divyesh and Binal lantern embrace" loading="lazy" /></div>
-        <div class="gallery__item reveal reveal--scale"><img src="images/save-the-date.png" alt="Save the Date" loading="lazy" /></div>
+    </div>
+    <div class="gallery__slider" aria-label="Photo gallery carousel">
+      <div class="gallery__track">
+        <div class="gallery__marquee">
+          <div class="gallery__strip">
+            <div class="gallery__item"><img src="images/couple-beach-sunset.png" alt="Divyesh and Binal on the beach" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-mountains.png" alt="Divyesh and Binal in the mountains" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-animated-sunset.png" alt="Divyesh and Binal at sunset" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-fairy-lights.png" alt="Divyesh and Binal under fairy lights" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-palace-canal.png" alt="Divyesh and Binal at the palace" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lake-proposal.png" alt="Divyesh and Binal lake proposal" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-playful-portrait.jpg" alt="Divyesh and Binal playful portrait" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lanterns-embrace.png" alt="Divyesh and Binal lantern embrace" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/save-the-date.png" alt="Save the Date" width="320" height="400" loading="lazy" decoding="async" /></div>
+          </div>
+          <div class="gallery__strip" aria-hidden="true">
+            <div class="gallery__item"><img src="images/couple-beach-sunset.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-mountains.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-animated-sunset.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-fairy-lights.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-palace-canal.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lake-proposal.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-playful-portrait.jpg" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/couple-lanterns-embrace.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+            <div class="gallery__item"><img src="images/save-the-date.png" alt="" width="320" height="400" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -445,6 +507,7 @@
   <script src="js/hand-touch.js"></script>
   <script src="js/kankotri-book.js"></script>
   <script src="js/event-details.js"></script>
+  <script src="js/countdown.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
