@@ -12,8 +12,25 @@
   <link rel="stylesheet" href="css/kankotri-book.css" />
   <link rel="stylesheet" href="css/event-details.css" />
   <link rel="stylesheet" href="css/countdown.css" />
+  <link rel="stylesheet" href="css/space-intro.css" />
 </head>
-<body>
+<body class="intro-active">
+
+  <!-- Space intro splash (particles + logo) -->
+  <div id="space-intro" class="space-intro" role="presentation" aria-hidden="true">
+    <canvas id="space-intro-canvas" class="space-intro__canvas" aria-hidden="true"></canvas>
+    <div class="space-intro__content">
+      <span class="space-intro__glow" aria-hidden="true"></span>
+      <img
+        src="images/logos/3.png"
+        alt="Divyesh & Binal"
+        class="space-intro__logo"
+        width="340"
+        height="125"
+        decoding="async"
+      />
+    </div>
+  </div>
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
@@ -499,6 +516,7 @@
     </div>
   </footer>
 
+  <script src="js/space-intro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
   <script src="js/mandala-cloud.js"></script>
   <script src="js/mandala-svg.js"></script>

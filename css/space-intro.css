@@ -1,0 +1,92 @@
+/* ===== Space intro splash (load animation) ===== */
+body.intro-active {
+  overflow: hidden;
+}
+
+.space-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e1118;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.9s;
+}
+
+.space-intro.is-exiting {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.space-intro__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.space-intro__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.space-intro__logo {
+  width: min(72vw, 340px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.35));
+  opacity: 0;
+  transform: scale(0.82) translateY(12px);
+  animation: spaceIntroLogoIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+.space-intro__glow {
+  position: absolute;
+  width: min(90vw, 420px);
+  height: min(90vw, 420px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 68%);
+  pointer-events: none;
+  animation: spaceIntroGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes spaceIntroLogoIn {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes spaceIntroGlowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.95); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-intro__logo {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .space-intro__glow {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .space-intro {
+    transition-duration: 0.35s;
+  }
+}

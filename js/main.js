@@ -1,6 +1,6 @@
 const WEDDING_DATE = new Date('2027-02-11T16:00:00');
 
-document.addEventListener('DOMContentLoaded', () => {
+function initSite() {
   initMandalaCloud('mandala-cloud-container');
   initMandalaSvg('mandala-svg');
   initHeroEntrance();
@@ -10,8 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initKankotriBook();
   initEventCards();
   initCountdown(WEDDING_DATE);
-
   initHeroSandText();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.body.classList.contains('intro-complete')) {
+    initSite();
+    return;
+  }
+
+  window.addEventListener('intro:complete', () => {
+    document.body.classList.add('intro-complete');
+    initSite();
+  }, { once: true });
+
+  // Fallback if intro markup is missing
+  setTimeout(() => {
+    if (!document.body.classList.contains('intro-complete')) {
+      document.getElementById('space-intro')?.remove();
+      document.body.classList.remove('intro-active');
+      document.body.classList.add('intro-complete');
+      initSite();
+    }
+  }, 8000);
 });
 
 async function initHeroSandText() {
