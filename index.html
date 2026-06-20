@@ -52,11 +52,13 @@
     </div>
   </nav>
 
+  <div class="site-ambient" aria-hidden="true">
+    <div id="mandala-cloud-container" class="site-ambient__particles"></div>
+    <div class="site-ambient__stars" id="siteAmbientStars"></div>
+  </div>
+
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div id="mandala-cloud-container" class="hero__particles" aria-hidden="true"></div>
-    <div class="hero__vignette" aria-hidden="true"></div>
-
     <div class="hero__lotus hero__lotus--tl" aria-hidden="true">
       <img src="assets/images/ui/lotus-flower.svg" alt="" class="hero__lotus-img" />
     </div>
@@ -98,10 +100,20 @@
     <div class="hand-touch__wrapper" id="handTouchWrapper">
       <div class="hand-touch__sticky" id="handTouchSticky">
 
-        <div class="hand-touch__stars" id="handTouchStars" aria-hidden="true"></div>
         <div class="hand-touch__floor-glow" aria-hidden="true"></div>
         <div class="hand-touch__floor-line" aria-hidden="true"></div>
         <!-- <div class="hand-touch__floor-circle" aria-hidden="true"></div> -->
+
+        <div class="hand-touch__pot-flowers" aria-hidden="true">
+          <div class="hand-touch__pot hand-touch__pot--left">
+            <img src="assets/images/pot-flower.png" alt="" class="hand-touch__pot-plant" decoding="async" />
+            <span class="hand-touch__pot-glow"></span>
+          </div>
+          <div class="hand-touch__pot hand-touch__pot--right">
+            <img src="assets/images/pot-flower.png" alt="" class="hand-touch__pot-plant" decoding="async" />
+            <span class="hand-touch__pot-glow"></span>
+          </div>
+        </div>
 
         <div class="hand-touch__top-label" id="handTouchTopLabel">
           <p class="hand-touch__top-text">તારીખ દેખાય ત્યાં સુધી નીચે સ્ક્રોલ કરો</p>

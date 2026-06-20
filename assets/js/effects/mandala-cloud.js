@@ -27,7 +27,7 @@
     },
     particles: {
       ySegments: 80, xSegments: 240, size: 1.2,
-      color: '#d4af37',
+      color: '#F2C879',
       waveSizeX: 250, waveSizeY: 0, waveSizeZ: 250
     }
   };
@@ -74,7 +74,7 @@
       this.mainLight = new three.HemisphereLight(0x000000, 0xffffff, 0.95);
       this.mainLight.position.set(0, -500, 0);
       this.scene.add(this.mainLight);
-      this.ambientLight = new three.AmbientLight(0xffd88a, 0.6);
+      this.ambientLight = new three.AmbientLight(0xF2C879, 0.6);
       this.ambientLight.position.set(-200, -100, 0);
       this.scene.add(this.ambientLight);
     }

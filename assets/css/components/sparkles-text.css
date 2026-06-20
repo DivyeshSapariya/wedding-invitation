@@ -1,6 +1,6 @@
 /* ===== Sparkles Text (hero names) ===== */
 .sparkles-text {
-  --sparkles-first-color: #f0d78c;
+  --sparkles-first-color: #FCEFD7;
   --sparkles-second-color: #ffb8c8;
   width: 100%;
   max-width: min(720px, 94vw);
@@ -40,25 +40,25 @@
   display: block;
   margin: 0;
   font-family: var(--font-script);
-  font-size: clamp(2.25rem, 7.5vw, 4.25rem);
+  font-size: var(--fs-display);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.02em;
   color: var(--gold-light);
   text-shadow:
-    0 0 28px rgba(212, 175, 55, 0.45),
+    0 0 28px var(--gold-glow),
     0 2px 16px rgba(0, 0, 0, 0.55);
   background: linear-gradient(
     105deg,
-    #b8952e 0%,
-    #c9a227 18%,
-    #d4af37 32%,
-    #f0d78c 42%,
+    #C4862A 0%,
+    #D4A855 18%,
+    #F2C879 32%,
+    #FCEFD7 42%,
     #fffef8 50%,
-    #f0d78c 58%,
-    #d4af37 68%,
-    #c9a227 82%,
-    #b8952e 100%
+    #FCEFD7 58%,
+    #F2C879 68%,
+    #D4A855 82%,
+    #C4862A 100%
   );
   background-size: 220% 100%;
   background-position: 0% 50%;
@@ -94,7 +94,7 @@
 
 @media (max-width: 520px) {
   .sparkles-text__label {
-    font-size: clamp(1.85rem, 8.5vw, 2.75rem);
+    font-size: clamp(2rem, 9vw, 2.75rem);
   }
 
   .sparkles-text__sparkle {

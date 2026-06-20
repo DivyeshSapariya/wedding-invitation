@@ -79,8 +79,8 @@
   function createSpaceBackground(canvas, options) {
     const {
       particleCount = 450,
-      particleColor = 'rgba(212, 175, 55, 0.88)',
-      backgroundColor = '#0e1118',
+      particleColor = 'rgba(252, 239, 215, 0.45)',
+      backgroundColor = '#7A1313',
     } = options;
 
     const ctx = canvas.getContext('2d');
@@ -213,8 +213,8 @@
 
     const bg = createSpaceBackground(canvas, {
       particleCount: PARTICLE_COUNT,
-      particleColor: 'rgba(212, 175, 55, 0.88)',
-      backgroundColor: '#0e1118',
+      particleColor: 'rgba(252, 239, 215, 0.45)',
+      backgroundColor: '#7A1313',
     });
 
     const startedAt = Date.now();

@@ -57,7 +57,7 @@
     const {
       text = '',
       sparklesCount = 12,
-      colors = { first: '#f0d78c', second: '#ffb8c8' },
+      colors = { first: '#FCEFD7', second: '#ffb8c8' },
     } = options;
 
     root.style.setProperty('--sparkles-first-color', colors.first);

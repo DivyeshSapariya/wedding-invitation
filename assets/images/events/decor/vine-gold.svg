@@ -6,7 +6,7 @@
     <path d="M36 260 Q20 300 36 340 Q52 300 36 260"/>
     <path d="M36 340 Q20 370 36 390 Q52 370 36 340"/>
   </g>
-  <g fill="#d4af37" opacity="0.35">
+  <g fill="#F2C879" opacity="0.35">
     <circle cx="36" cy="50" r="3"/><circle cx="36" cy="130" r="2.5"/><circle cx="36" cy="210" r="3"/>
     <circle cx="36" cy="290" r="2.5"/><circle cx="36" cy="360" r="3"/>
   </g>

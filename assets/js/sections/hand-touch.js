@@ -17,19 +17,19 @@ function initHandTouchSection() {
   const sparkRing = document.getElementById('handTouchSparkRing');
   const sparkRing2 = document.getElementById('handTouchSparkRing2');
   const sparkStream = document.getElementById('handTouchSparkStream');
-  const starsBg = document.getElementById('handTouchStars');
+  const starsBg = document.getElementById('siteAmbientStars');
   const heartBurst = document.getElementById('handTouchHeartBurst');
   const groomFx = document.getElementById('handTouchGroomFx');
   const brideFx = document.getElementById('handTouchBrideFx');
   const floatPetals = document.getElementById('handTouchPetals');
 
-  if (!groom || !bride || !sticky) return;
+  if (!groom || !bride || !sticky || !starsBg) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   for (let i = 0; i < 90; i++) {
     const star = document.createElement('div');
-    star.className = 'hand-touch__star';
+    star.className = 'site-ambient__star';
     star.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;
       width:${1 + Math.random() * 2}px;height:${1 + Math.random() * 2}px;
       --d:${2 + Math.random() * 4}s;--dl:${Math.random() * 4}s;--op:${0.2 + Math.random() * 0.6}`;

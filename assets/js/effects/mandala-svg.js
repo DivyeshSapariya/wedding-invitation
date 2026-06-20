@@ -1,7 +1,7 @@
 /* Functional SVG Mandala — adapted for wedding hero (gold strokes) */
 window.initMandalaSvg = function (svgId) {
   const DEFAULT_MANDALA_FILL = 'transparent';
-  const DEFAULT_MANDALA_STROKE = '#d4af37';
+  const DEFAULT_MANDALA_STROKE = '#F2C879';
   const DEFAULT_STROKE_WIDTH = 2;
   const BASE_ANGULAR_VELOCITY = 12;
 

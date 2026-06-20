@@ -1,7 +1,6 @@
 /* ===== Smooth reveal after space intro ===== */
 body:not(.site-reveal) .nav,
-body:not(.site-reveal) #hero .hero__particles,
-body:not(.site-reveal) #hero .hero__vignette,
+body:not(.site-reveal) .site-ambient,
 body:not(.site-reveal) #hero .hero__lotus,
 body:not(.site-reveal) #hero .hero__layout {
   opacity: 0;
@@ -16,8 +15,7 @@ body.site-reveal .nav {
   transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
 }
 
-body.site-reveal #hero .hero__particles,
-body.site-reveal #hero .hero__vignette {
+body.site-reveal .site-ambient {
   opacity: 1;
   transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
 }
@@ -50,8 +48,7 @@ body.site-reveal .hero__names {
 
 @media (prefers-reduced-motion: reduce) {
   body:not(.site-reveal) .nav,
-  body:not(.site-reveal) #hero .hero__particles,
-  body:not(.site-reveal) #hero .hero__vignette,
+  body:not(.site-reveal) .site-ambient,
   body:not(.site-reveal) #hero .hero__lotus,
   body:not(.site-reveal) #hero .hero__layout,
   body:not(.site-reveal) .hero__names {
@@ -60,8 +57,7 @@ body.site-reveal .hero__names {
   }
 
   body.site-reveal .nav,
-  body.site-reveal #hero .hero__particles,
-  body.site-reveal #hero .hero__vignette,
+  body.site-reveal .site-ambient,
   body.site-reveal #hero .hero__lotus,
   body.site-reveal #hero .hero__layout,
   body.site-reveal .hero__names {

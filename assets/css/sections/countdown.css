@@ -48,26 +48,18 @@
 }
 
 @keyframes countdownSecondsGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(212, 175, 55, 0.06); }
-  50% { box-shadow: 0 0 32px rgba(212, 175, 55, 0.45), inset 0 0 28px rgba(212, 175, 55, 0.12); }
+  0%, 100% { box-shadow: 0 0 20px rgba(242, 200, 121, 0.25), inset 0 0 20px rgba(242, 200, 121, 0.06); }
+  50% { box-shadow: 0 0 32px rgba(242, 200, 121, 0.45), inset 0 0 28px rgba(242, 200, 121, 0.12); }
 }
 
 .countdown {
   position: relative;
   padding: 6.5rem 0 7rem;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 45% at 85% 80%, rgba(201, 97, 126, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
-    linear-gradient(180deg, #141824 0%, var(--bg-navy) 45%, #12161f 100%);
 }
 
 .countdown__ambient {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .countdown__orb {
@@ -82,7 +74,7 @@
   height: 220px;
   top: 8%;
   left: 5%;
-  background: rgba(212, 175, 55, 0.18);
+  background: rgba(242, 200, 121, 0.18);
 }
 
 .countdown__orb--2 {
@@ -99,7 +91,7 @@
   height: 140px;
   top: 45%;
   right: 22%;
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(242, 200, 121, 0.1);
   animation-delay: 4.5s;
 }
 
@@ -108,8 +100,8 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(255, 220, 160, 0.9);
+  background: rgba(252, 239, 215, 0.45);
+  box-shadow: 0 0 10px var(--gold-glow);
   animation: countdownSparkle 3.2s ease-in-out infinite;
 }
 
@@ -125,7 +117,7 @@
   width: min(520px, 88vw);
   height: min(520px, 88vw);
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(242, 200, 121, 0.08);
   border-radius: 50%;
   animation: countdownRingSpin 80s linear infinite;
 }
@@ -134,7 +126,7 @@
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px dashed rgba(212, 175, 55, 0.06);
+  border: 1px dashed rgba(242, 200, 121, 0.06);
   border-radius: 50%;
 }
 
@@ -173,13 +165,13 @@
 
 .countdown__ornament-gem {
   color: var(--gold);
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   text-shadow: 0 0 14px var(--gold-glow);
 }
 
 .countdown__date {
   font-family: var(--font-serif);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-size: var(--fs-section-subtitle);
   font-style: italic;
   color: var(--gold-light);
   opacity: 0.9;
@@ -197,7 +189,7 @@
 
 .countdown__colon {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.125rem, 5vw, 3.25rem);
   font-weight: 500;
   color: var(--gold);
   opacity: 0.45;
@@ -233,8 +225,8 @@
   padding: 1.35rem 1.15rem 1.15rem;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%),
-    rgba(22, 28, 42, 0.75);
-  border: 1px solid rgba(212, 175, 55, 0.28);
+    rgba(92, 15, 30, 0.75);
+  border: 1px solid rgba(242, 200, 121, 0.28);
   border-radius: 14px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -251,14 +243,14 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 65%);
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(242, 200, 121, 0.12) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .countdown__card-glow {
   position: absolute;
   inset: -20%;
-  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 55%);
+  background: radial-gradient(circle at 50% 50%, rgba(242, 200, 121, 0.15) 0%, transparent 55%);
   animation: countdownGlowPulse 4s ease-in-out infinite;
   pointer-events: none;
 }
@@ -284,10 +276,10 @@
 }
 
 .countdown__card:hover {
-  border-color: rgba(212, 175, 55, 0.5);
+  border-color: rgba(242, 200, 121, 0.5);
   box-shadow:
     0 22px 48px rgba(0, 0, 0, 0.4),
-    0 0 28px rgba(212, 175, 55, 0.15),
+    0 0 28px rgba(242, 200, 121, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -311,7 +303,7 @@
 
 .countdown__num {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 6vw, 3.75rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 500;
   color: var(--gold-light);
   line-height: 1;
@@ -330,20 +322,20 @@
 .countdown__label {
   position: relative;
   z-index: 1;
-  font-size: 0.58rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   margin-top: 0.65rem;
 }
 
 .countdown__tagline {
   font-family: var(--font-script);
-  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
   color: var(--gold-light);
   opacity: 0.85;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  text-shadow: 0 0 20px var(--gold-glow);
 }
 
 @media (max-width: 600px) {
@@ -351,8 +343,10 @@
   .countdown__header { margin-bottom: 2.25rem; }
   .countdown__colon { display: none; }
   .countdown__grid { gap: 0.65rem; }
-  .countdown__card { min-width: 72px; padding: 1rem 0.75rem 0.9rem; border-radius: 12px; }
+  .countdown__card { min-width: 76px; padding: 1.05rem 0.8rem 0.95rem; border-radius: 12px; }
   .countdown__ring { width: 95vw; height: 95vw; opacity: 0.6; }
+  .countdown__num { font-size: clamp(2.5rem, 10vw, 3.25rem); }
+  .countdown__label { font-size: var(--fs-caption); }
 }
 
 @media (prefers-reduced-motion: reduce) {

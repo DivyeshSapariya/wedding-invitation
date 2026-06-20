@@ -4,7 +4,6 @@
   --kk-section-pad-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
 
   position: relative;
-  isolation: isolate;
   min-height: 100svh;
   min-height: 100dvh;
   display: flex;
@@ -12,7 +11,6 @@
   justify-content: center;
   box-sizing: border-box;
   padding: var(--kk-section-pad-top) 0 var(--kk-section-pad-bottom);
-  background: #100d12;
   overflow-x: clip;
 }
 
@@ -27,23 +25,24 @@
 .kankotri__gradient {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 90% 70% at 50% 38%, rgba(94, 15, 23, 0.42) 0%, transparent 62%),
-    radial-gradient(ellipse 55% 45% at 18% 12%, rgba(212, 175, 55, 0.09) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 82% 88%, rgba(201, 123, 139, 0.1) 0%, transparent 52%),
-    linear-gradient(165deg, #0f1218 0%, #1a1520 28%, #1a1f2e 52%, #141820 100%);
+  background: none;
 }
 
 .kankotri__pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(30deg, rgba(212, 175, 55, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.04) 87.5%),
-    linear-gradient(150deg, rgba(212, 175, 55, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.04) 87.5%),
-    radial-gradient(rgba(212, 175, 55, 0.11) 0.8px, transparent 1px);
-  background-size: 72px 72px, 72px 72px, 28px 28px;
-  mask-image: radial-gradient(ellipse 88% 72% at 50% 46%, #000 18%, transparent 80%);
+  display: none;
+}
+
+.kankotri__glow {
+  display: none;
+}
+
+.kankotri__vignette {
+  display: none;
+}
+
+.kankotri::before,
+.kankotri::after {
+  content: none;
 }
 
 .kankotri__ornament {
@@ -57,58 +56,24 @@
 .kankotri__ornament::after {
   content: '';
   position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), rgba(240, 215, 140, 0.75));
+  background: linear-gradient(90deg, transparent, rgba(242, 200, 121, 0.55), rgba(252, 239, 215, 0.75));
 }
 
 .kankotri__ornament--tl { top: 8%; left: 5%; }
 .kankotri__ornament--tl::before { top: 0; left: 0; width: 100%; height: 1px; }
-.kankotri__ornament--tl::after { top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(180deg, rgba(240, 215, 140, 0.75), rgba(212, 175, 55, 0.55), transparent); }
+.kankotri__ornament--tl::after { top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(180deg, rgba(252, 239, 215, 0.75), rgba(242, 200, 121, 0.55), transparent); }
 
 .kankotri__ornament--tr { top: 8%; right: 5%; }
-.kankotri__ornament--tr::before { top: 0; right: 0; width: 100%; height: 1px; background: linear-gradient(270deg, transparent, rgba(212, 175, 55, 0.55), rgba(240, 215, 140, 0.75)); }
-.kankotri__ornament--tr::after { top: 0; right: 0; width: 1px; height: 100%; background: linear-gradient(180deg, rgba(240, 215, 140, 0.75), rgba(212, 175, 55, 0.55), transparent); }
+.kankotri__ornament--tr::before { top: 0; right: 0; width: 100%; height: 1px; background: linear-gradient(270deg, transparent, rgba(242, 200, 121, 0.55), rgba(252, 239, 215, 0.75)); }
+.kankotri__ornament--tr::after { top: 0; right: 0; width: 1px; height: 100%; background: linear-gradient(180deg, rgba(252, 239, 215, 0.75), rgba(242, 200, 121, 0.55), transparent); }
 
 .kankotri__ornament--bl { bottom: 8%; left: 5%; }
-.kankotri__ornament--bl::before { bottom: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), rgba(240, 215, 140, 0.75)); }
-.kankotri__ornament--bl::after { bottom: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(0deg, rgba(240, 215, 140, 0.75), rgba(212, 175, 55, 0.55), transparent); }
+.kankotri__ornament--bl::before { bottom: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(242, 200, 121, 0.55), rgba(252, 239, 215, 0.75)); }
+.kankotri__ornament--bl::after { bottom: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(0deg, rgba(252, 239, 215, 0.75), rgba(242, 200, 121, 0.55), transparent); }
 
 .kankotri__ornament--br { bottom: 8%; right: 5%; }
-.kankotri__ornament--br::before { bottom: 0; right: 0; width: 100%; height: 1px; background: linear-gradient(270deg, transparent, rgba(212, 175, 55, 0.55), rgba(240, 215, 140, 0.75)); }
-.kankotri__ornament--br::after { bottom: 0; right: 0; width: 1px; height: 100%; background: linear-gradient(0deg, rgba(240, 215, 140, 0.75), rgba(212, 175, 55, 0.55), transparent); }
-
-.kankotri__glow {
-  position: absolute;
-  top: 54%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(88vw, 760px);
-  height: min(68vh, 640px);
-  background: radial-gradient(ellipse at center, rgba(251, 244, 227, 0.07) 0%, rgba(212, 175, 55, 0.1) 28%, transparent 72%);
-  filter: blur(24px);
-}
-
-.kankotri__vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 92% 78% at 50% 44%, transparent 42%, rgba(0, 0, 0, 0.48) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, transparent 14%, transparent 86%, rgba(0, 0, 0, 0.28) 100%);
-}
-
-.kankotri::before,
-.kankotri::after {
-  content: '';
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  height: 1px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.22) 20%, rgba(240, 215, 140, 0.5) 50%, rgba(212, 175, 55, 0.22) 80%, transparent);
-}
-
-.kankotri::before { top: 0; }
-.kankotri::after { bottom: 0; opacity: 0.65; }
+.kankotri__ornament--br::before { bottom: 0; right: 0; width: 100%; height: 1px; background: linear-gradient(270deg, transparent, rgba(242, 200, 121, 0.55), rgba(252, 239, 215, 0.75)); }
+.kankotri__ornament--br::after { bottom: 0; right: 0; width: 1px; height: 100%; background: linear-gradient(0deg, rgba(252, 239, 215, 0.75), rgba(242, 200, 121, 0.55), transparent); }
 
 .kankotri__header {
   text-align: center;
@@ -123,11 +88,11 @@
 }
 
 .kankotri__subtitle {
-  color: rgba(245, 240, 232, 0.62);
-  font-size: clamp(0.78rem, 1.9vw, 0.88rem);
-  max-width: 24rem;
+  color: var(--text-muted);
+  font-size: var(--fs-section-subtitle);
+  max-width: 28rem;
   margin: 0 auto;
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: 0.02em;
 }
 
@@ -142,8 +107,8 @@
   border-radius: 16px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(16, 20, 30, 0.42);
-  border: 1px solid rgba(212, 175, 55, 0.14);
+    rgba(92, 15, 30, 0.42);
+  border: 1px solid rgba(242, 200, 121, 0.14);
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -155,7 +120,7 @@
   position: absolute;
   inset: 10px;
   border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(242, 200, 121, 0.08);
   pointer-events: none;
 }
 
@@ -174,9 +139,9 @@
   font-family: "Mukta Vaani", var(--font-sans), sans-serif;
   --kk-maroon: #5e0f17;
   --kk-maroon-deep: #430a10;
-  --kk-gold: #c79a3b;
-  --kk-gold-bright: #e6c068;
-  --kk-gold-deep: #8f6a1c;
+  --kk-gold: var(--gold-primary);
+  --kk-gold-bright: var(--gold-light);
+  --kk-gold-deep: #C4862A;
   --kk-cream: #fbf4e3;
   --kk-cream-shade: #f1e4c4;
   --kk-ink: #491215;
@@ -322,7 +287,7 @@
   transform: translateX(-50%);
   text-align: center;
   font-family: "Hind Vadodara", sans-serif;
-  font-size: 0.68rem;
+  font-size: var(--fs-caption);
   color: var(--kk-gold-deep);
   letter-spacing: 0.08em;
   z-index: 11;
@@ -778,7 +743,7 @@
   padding: 10px 8px;
   border-radius: 10px;
   background:
-    radial-gradient(ellipse 90% 80% at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 80% at 50% 0%, rgba(242, 200, 121, 0.12) 0%, transparent 70%),
     linear-gradient(180deg, rgba(255, 252, 245, 0.85), rgba(251, 244, 227, 0.35));
   border: 1px solid rgba(199, 154, 59, 0.28);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -917,8 +882,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  background: rgba(20, 24, 36, 0.88);
+  border: 1px solid rgba(242, 200, 121, 0.5);
+  background: rgba(92, 15, 30, 0.88);
   color: var(--gold-light);
   font-size: 1.75rem;
   line-height: 1;
@@ -932,8 +897,8 @@
 }
 
 .kankotri__book-host .edge-arrow:hover {
-  background: rgba(212, 175, 55, 0.18);
-  border-color: rgba(240, 215, 140, 0.75);
+  background: rgba(242, 200, 121, 0.18);
+  border-color: rgba(252, 239, 215, 0.75);
 }
 
 .kankotri__book-host .edge-arrow:active {
@@ -954,14 +919,14 @@
 .kankotri__book-host .edge-cap {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 0.68rem;
+  font-size: var(--fs-caption);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(245, 240, 232, 0.75);
-  background: rgba(20, 24, 36, 0.72);
+  color: rgba(232, 201, 151, 0.75);
+  background: rgba(92, 15, 30, 0.72);
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(242, 200, 121, 0.2);
   pointer-events: none;
 }
 
@@ -970,8 +935,8 @@
 }
 
 @keyframes kkArrowPulse {
-  0%, 100% { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(212, 175, 55, 0.35); }
-  50% { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 0 10px rgba(212, 175, 55, 0); }
+  0%, 100% { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(242, 200, 121, 0.35); }
+  50% { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 0 10px rgba(242, 200, 121, 0); }
 }
 
 /* ================= DESKTOP BOOK ================= */
@@ -998,13 +963,13 @@
 .kankotri__book-host .count {
   font-family: "Hind Vadodara", sans-serif;
   letter-spacing: 0.14em;
-  font-size: 0.82rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--gold-light);
   padding: 0.45rem 1.15rem;
   border-radius: 999px;
-  background: rgba(18, 21, 28, 0.55);
-  border: 1px solid rgba(212, 175, 55, 0.22);
+  background: rgba(92, 15, 30, 0.55);
+  border: 1px solid rgba(242, 200, 121, 0.22);
 }
 
 .kankotri__book-host .stage {
@@ -1085,8 +1050,8 @@
   margin-top: 14px;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(18, 21, 28, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: rgba(92, 15, 30, 0.5);
+  border: 1px solid rgba(242, 200, 121, 0.14);
   position: relative;
   z-index: 5;
 }
@@ -1095,7 +1060,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  border: 1px solid rgba(242, 200, 121, 0.45);
   background: transparent;
   cursor: pointer;
   padding: 0;
@@ -1112,9 +1077,9 @@
   position: relative;
   z-index: 5;
   margin-top: 10px;
-  color: rgba(245, 240, 232, 0.55);
+  color: var(--text-muted);
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: var(--fs-caption);
   letter-spacing: 0.02em;
   text-align: center;
   max-width: 20rem;
@@ -1136,13 +1101,13 @@
   color: var(--gold-light);
   font-family: "Hind Vadodara", sans-serif;
   letter-spacing: 0.12em;
-  font-size: 0.82rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   margin-bottom: 10px;
   padding: 0.45rem 1.15rem;
   border-radius: 999px;
-  background: rgba(18, 21, 28, 0.55);
-  border: 1px solid rgba(212, 175, 55, 0.22);
+  background: rgba(92, 15, 30, 0.55);
+  border: 1px solid rgba(242, 200, 121, 0.22);
   z-index: 5;
 }
 
@@ -1181,7 +1146,7 @@
 
 .kankotri__book-host .mhelp {
   margin-top: 12px;
-  color: rgba(245, 240, 232, 0.55);
+  color: var(--text-muted);
   font-family: var(--font-sans);
   font-size: 0.76rem;
   text-align: center;
@@ -1198,8 +1163,8 @@
   margin-top: 12px;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(18, 21, 28, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: rgba(92, 15, 30, 0.5);
+  border: 1px solid rgba(242, 200, 121, 0.14);
   z-index: 5;
 }
 
@@ -1207,7 +1172,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  border: 1px solid rgba(242, 200, 121, 0.45);
   background: transparent;
   cursor: pointer;
   padding: 0;
@@ -1229,29 +1194,33 @@
   .kankotri__book-shell {
     padding: 0.65rem 0.35rem 0.85rem;
     border-radius: 12px;
-    background: rgba(16, 20, 30, 0.28);
+    background: rgba(92, 15, 30, 0.28);
   }
-  .kankotri__book-host .shloka { font-size: 0.9rem; }
-  .kankotri__book-host .cover-shubh { font-size: 2.5rem; }
-  .kankotri__book-host .cover-date { font-size: 1.1rem; }
-  .kankotri__book-host .couple.cov .nm { font-size: 2rem; }
-  .kankotri__book-host .couple2 .nm { font-size: 2rem; }
-  .kankotri__book-host .invite-para { font-size: 0.9rem; }
-  .kankotri__book-host .ncol span { font-size: 0.82rem; }
-  .kankotri__book-host .vbody { font-size: 0.85rem; }
-  .kankotri__book-host .vh { font-size: 1.05rem; }
-  .kankotri__book-host .evc .et { font-size: 1.02rem; }
-  .kankotri__book-host .evc .ed { font-size: 0.78rem; }
-  .kankotri__book-host .grp-h { font-size: 1.15rem; }
-  .kankotri__book-host .grp1 { font-size: 0.88rem; }
-  .kankotri__book-host .poem { font-size: 0.9rem; }
-  .kankotri__book-host .nimantrak { font-size: 1.05rem; }
-  .kankotri__book-host .addr { font-size: 0.9rem; }
-  .kankotri__book-host .mob { font-size: 1rem; }
-  .kankotri__book-host .snehadhin { font-size: 1.3rem; }
-  .kankotri__book-host .mang-title { font-size: 1.6rem; }
-  .kankotri__book-host .thankyou { font-size: 3rem; }
-  .kankotri__book-host .ty-sub { font-size: 1.7rem; }
+  .kankotri__book-host .shloka { font-size: 1rem; }
+  .kankotri__book-host .cover-shubh { font-size: 2.65rem; }
+  .kankotri__book-host .cover-date { font-size: 1.2rem; }
+  .kankotri__book-host .couple.cov .nm { font-size: 2.15rem; }
+  .kankotri__book-host .couple2 .nm { font-size: 2.15rem; }
+  .kankotri__book-host .invite-para { font-size: 1rem; }
+  .kankotri__book-host .ncol span { font-size: 0.92rem; }
+  .kankotri__book-host .vbody { font-size: 0.95rem; }
+  .kankotri__book-host .vh { font-size: 1.15rem; }
+  .kankotri__book-host .evc .et { font-size: 1.12rem; }
+  .kankotri__book-host .evc .ed { font-size: 0.88rem; }
+  .kankotri__book-host .grp-h { font-size: 1.25rem; }
+  .kankotri__book-host .grp1 { font-size: 0.98rem; }
+  .kankotri__book-host .poem { font-size: 1rem; }
+  .kankotri__book-host .nimantrak { font-size: 1.15rem; }
+  .kankotri__book-host .addr { font-size: 1rem; }
+  .kankotri__book-host .mob { font-size: 1.08rem; }
+  .kankotri__book-host .snehadhin { font-size: 1.4rem; }
+  .kankotri__book-host .mang-title { font-size: 1.75rem; }
+  .kankotri__book-host .thankyou { font-size: 3.15rem; }
+  .kankotri__book-host .ty-sub { font-size: 1.85rem; }
+  .kankotri__book-host .hint,
+  .kankotri__book-host .mhelp { font-size: var(--fs-caption); }
+  .kankotri__book-host .mtop,
+  .kankotri__book-host .count { font-size: var(--fs-caption); }
   .kankotri__book-host .pg-deco__mandala--right { width: 88%; right: -36%; opacity: 0.36; }
   .kankotri__book-host .pg-deco__mandala--top { width: 52%; top: -30%; opacity: 0.24; }
   .kankotri__book-host .pg-deco__mandala--br { width: 44%; opacity: 0.26; }
@@ -1276,7 +1245,7 @@
   }
 
   .kankotri__subtitle {
-    font-size: 0.74rem;
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
   }
 
   .kankotri__ornament {
@@ -1285,5 +1254,34 @@
 
   .kankotri__book-shell::before {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .kankotri__book-host .invite-para,
+  .kankotri__book-host .vbody,
+  .kankotri__book-host .poem,
+  .kankotri__book-host .addr,
+  .kankotri__book-host .grp1,
+  .kankotri__book-host .ncol span,
+  .kankotri__book-host .shloka,
+  .kankotri__book-host .mob,
+  .kankotri__book-host .pg-num {
+    font-size: 1rem;
+  }
+
+  .kankotri__book-host .vh,
+  .kankotri__book-host .evc .et,
+  .kankotri__book-host .grp-h,
+  .kankotri__book-host .nimantrak {
+    font-size: 1.08rem;
+  }
+
+  .kankotri__book-host .evc .ed,
+  .kankotri__book-host .snehadhin,
+  .kankotri__book-host .mang-title,
+  .kankotri__book-host .thankyou,
+  .kankotri__book-host .ty-sub {
+    font-size: calc(1em + 0.12rem);
   }
 }

@@ -48,7 +48,7 @@ function initHeroSparklesText() {
     text: 'દિવ્યેશ અને બિનલ',
     sparklesCount: window.innerWidth <= 520 ? 10 : 14,
     colors: {
-      first: '#f0d78c',
+      first: '#FCEFD7',
       second: '#ffb8c8',
     },
   });
